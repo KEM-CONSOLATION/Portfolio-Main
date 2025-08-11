@@ -6,16 +6,16 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Nav = () => {
-  const [isBottomNav, setIsBottomNav] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
 
     const handleScroll = () => {
       if (window.scrollY > 80) {
-        setIsBottomNav(true);
+        setIsScrolled(true);
       } else {
-        setIsBottomNav(false);
+        setIsScrolled(false);
       }
     };
 
@@ -24,18 +24,18 @@ const Nav = () => {
   }, []);
 
   return (
-    <div className={isBottomNav ? "pb-[70px]" : ""}>
+    <div className={isScrolled ? "pb-[70px]" : ""}>
       <div
         className={`
           hidden md:flex items-start justify-between
           transition-all duration-500 ease-in-out
           ${
-            isBottomNav
+            isScrolled
               ? "fixed bottom-0 left-0 right-0 bg-[#0a0a0a] shadow-lg border-t z-50 py-3"
               : "sticky top-0 bg-[#0a0a0a]"
           }
         `}
-        data-aos={isBottomNav ? "fade-up" : "fade-down"}
+        data-aos={isScrolled ? "fade-up" : "fade-down"}
       >
         <div className="flex items-center gap-[16px]">
           <div className="overflow-hidden max-h-[52px] max-w-[52px] rounded-full bg-[#48484A] border-2 border-white">
@@ -87,37 +87,49 @@ const Nav = () => {
         </div>
       </div>
 
-      <div
-        className="
-          md:hidden fixed bottom-0 left-0 right-0 z-50
-          flex items-center justify-around
-          bg-[#0a0a0a] border-t border-gray-200
-          py-[8px] text-[14px] font-[500] text-[#48484A]
-        "
-        data-aos="fade-up"
-      >
-        <a href="#home" className="p-[8px]">
-          Home
-        </a>
-        <a href="#experience" className="p-[8px]">
-          Experience
-        </a>
-        <a href="#projects" className="p-[8px]">
-          Projects
-        </a>
-        <a
-          href="https://github.com/KEM-CONSOLATION"
-          target="_blank"
-          className="p-[8px]"
+      {!isScrolled && (
+        <div
+          className="md:hidden fixed top-0 left-0 right-0 z-50
+          flex items-center justify-between
+          bg-[#0a0a0a] border-b border-gray-200
+          py-[12px] px-[16px]"
+          data-aos="fade-down"
         >
-          <Image
-            src="/Assets/gitHubIcon.svg"
-            alt="GitHub Icon"
-            width={28}
-            height={28}
-          />
-        </a>
-      </div>
+          <p className="text-white font-[500] text-[16px]">
+            Consolation Lotachi Kem
+          </p>
+          <a href="https://github.com/KEM-CONSOLATION" target="_blank">
+            <Image
+              src="/Assets/gitHubIcon.svg"
+              alt="GitHub Icon"
+              width={28}
+              height={28}
+            />
+          </a>
+        </div>
+      )}
+
+      {isScrolled && (
+        <div
+          className="md:hidden fixed bottom-0 left-0 right-0 z-50
+          flex items-center justify-between
+          bg-[#0a0a0a] border-t border-gray-200
+          py-[12px] px-[16px]"
+          data-aos="fade-up"
+        >
+          <p className="text-white font-[500] text-[16px]">
+            Consolation Lotachi Kem
+          </p>
+          <a href="https://github.com/KEM-CONSOLATION" target="_blank">
+            <Image
+              src="/Assets/gitHubIcon.svg"
+              alt="GitHub Icon"
+              width={28}
+              height={28}
+            />
+          </a>
+        </div>
+      )}
     </div>
   );
 };

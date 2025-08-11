@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Arima, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-// Arima setup
 const arimaSans = Arima({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -43,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Consolation Lotachi Kem Portfolio",
     images: [
       {
-        url: "/Assets/PIC3.JPG",
+        url: "/Assets/Pic3.JPG",
         width: 1200,
         height: 630,
         alt: "Consolation Lotachi Kem Portfolio Preview",
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
     title: "Consolation Lotachi Kem | Frontend Developer Portfolio",
     description:
       "Explore my projects, skills, and experience as a Frontend Developer specializing in modern, responsive, and high-performance web applications.",
-    images: ["/Assets/PIC1.JPG"],
+    images: ["/Assets/Pic1.JPG"],
     creator: "@techieconso",
   },
   icons: {
