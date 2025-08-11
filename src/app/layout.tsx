@@ -15,8 +15,56 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CONSOLATION LOTACHI KEM",
-  description: "Portfolio of Consolation Lotachi Kem",
+  title: "Consolation Lotachi Kem | Frontend Developer Portfolio",
+  description:
+    "Portfolio of Consolation Lotachi Kem, a skilled Frontend Developer specializing in React, Next.js, TypeScript, and modern web technologies.",
+  keywords: [
+    "Consolation Lotachi Kem",
+    "Frontend Developer",
+    "React Developer",
+    "Next.js Portfolio",
+    "TypeScript Developer",
+    "Web Development",
+    "UI/UX Implementation",
+    "Frontend Engineer",
+  ],
+  authors: [{ name: "Consolation Lotachi Kem" }],
+  creator: "Consolation Lotachi Kem",
+  publisher: "Consolation Lotachi Kem",
+  metadataBase: new URL("https://techieconso.vercel.app"),
+  alternates: {
+    canonical: "https://techieconso.vercel.app",
+  },
+  openGraph: {
+    title: "Consolation Lotachi Kem | Frontend Developer Portfolio",
+    description:
+      "Explore my projects, skills, and experience as a Frontend Developer specializing in modern, responsive, and high-performance web applications.",
+    url: "https://techieconso.vercel.app",
+    siteName: "Consolation Lotachi Kem Portfolio",
+    images: [
+      {
+        url: "/Assets/PIC3.JPG",
+        width: 1200,
+        height: 630,
+        alt: "Consolation Lotachi Kem Portfolio Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Consolation Lotachi Kem | Frontend Developer Portfolio",
+    description:
+      "Explore my projects, skills, and experience as a Frontend Developer specializing in modern, responsive, and high-performance web applications.",
+    images: ["/Assets/PIC1.JPG"],
+    creator: "@techieconso",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
