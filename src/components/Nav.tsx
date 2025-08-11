@@ -2,11 +2,15 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Nav = () => {
   const [isBottomNav, setIsBottomNav] = useState(false);
 
   useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+
     const handleScroll = () => {
       if (window.scrollY > 80) {
         setIsBottomNav(true);
@@ -31,9 +35,10 @@ const Nav = () => {
               : "sticky top-0 bg-[#0a0a0a]"
           }
         `}
+        data-aos={isBottomNav ? "fade-up" : "fade-down"}
       >
         <div className="flex items-center gap-[16px]">
-          <div className=" overflow-hidden max-h-[52px] max-w-[52px] rounded-full bg-[#48484A] border-2 border-white">
+          <div className="overflow-hidden max-h-[52px] max-w-[52px] rounded-full bg-[#48484A] border-2 border-white">
             <Image
               src="/Assets/Pic3.JPG"
               alt="Profile Picture"
@@ -54,7 +59,10 @@ const Nav = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-[16px] text-[16px] font-[500] text-[#48484A]">
+        <div
+          className="flex items-center gap-[16px] text-[16px] font-[500] text-[#48484A]"
+          data-aos="fade-left"
+        >
           <a href="#home" className="p-[8px]">
             Home
           </a>
@@ -86,6 +94,7 @@ const Nav = () => {
           bg-[#0a0a0a] border-t border-gray-200
           py-[8px] text-[14px] font-[500] text-[#48484A]
         "
+        data-aos="fade-up"
       >
         <a href="#home" className="p-[8px]">
           Home

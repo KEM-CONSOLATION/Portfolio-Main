@@ -1,7 +1,16 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Projects = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
+
   const projects = [
     {
       name: "Troo",
@@ -27,7 +36,7 @@ const Projects = () => {
 
   return (
     <div className="mb-[100px]" id="projects">
-      <div className="space-y-[8px]">
+      <div className="space-y-[8px]" data-aos="fade-up">
         <p className="font-[500] text-[35px] md:text-[40px]">Projects</p>
         <p className="font-[500] text-[15px] md:text-[20px]">
           Explore Some of the Projects I Have Worked On.
@@ -41,8 +50,13 @@ const Projects = () => {
             className={`grid place-items-center lg:flex items-center lg:justify-between gap-[32px] ${
               project.reverse ? "lg:flex-row-reverse" : ""
             }`}
+            data-aos={project.reverse ? "fade-left" : "fade-right"}
           >
-            <div className="max-w-[700px] text-center md:text-left space-y-4">
+            <div
+              className="max-w-[700px] text-center md:text-left space-y-4"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               <p className="font-medium text-[20px] md:text-[24px]">
                 {project.name}
               </p>
@@ -64,6 +78,8 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-[10px] rounded-[8px] bg-[#FFFFFF] inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-colors duration-200"
+                data-aos="zoom-in"
+                data-aos-delay="150"
               >
                 <p className="font-[500] text-[16px] text-[#48484A]">
                   Visit live link
@@ -73,17 +89,19 @@ const Projects = () => {
                   alt="Project Link"
                   width={24}
                   height={24}
+                  loading="lazy"
                 />
               </a>
             </div>
 
-            <div>
+            <div data-aos="zoom-in" data-aos-delay="200">
               <Image
                 src={project.image}
                 alt={`${project.name} Project Image`}
                 width={400}
                 height={300}
                 className="rounded-[8px] object-cover"
+                loading="lazy"
               />
             </div>
           </div>
