@@ -35,11 +35,13 @@ const Nav = () => {
         <div className="flex items-center gap-[16px]">
           <div className=" overflow-hidden max-h-[52px] max-w-[52px] rounded-full bg-[#48484A] border-2 border-white">
             <Image
-              src="/Assets/Pic3.jpg"
+              src="/Assets/Pic3.JPG"
               alt="Profile Picture"
               width={52}
               height={52}
               className="rounded-full object-cover"
+              loading="lazy"
+              priority={false}
             />
           </div>
           <div className="space-y-[8px]">

@@ -15,18 +15,22 @@ const HeroSection = () => {
       "
           >
             <Image
-              src="/Assets/Pic2.jpg"
+              src="/Assets/Pic2.JPG"
               alt="Profile Picture - Mobile"
               width={350}
               height={350}
+              loading="lazy"
+              priority={false}
               className="object-cover w-full h-full block md:hidden"
             />
 
             <Image
-              src="/Assets/Pic1.jpg"
+              src="/Assets/Pic1.JPG"
               alt="Profile Picture - Desktop"
               width={350}
               height={350}
+              loading="lazy"
+              priority={false}
               className="object-cover w-full h-full hidden md:block"
             />
           </div>
