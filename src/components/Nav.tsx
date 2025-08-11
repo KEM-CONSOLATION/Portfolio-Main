@@ -83,7 +83,7 @@ const Nav = () => {
         className="
           md:hidden fixed bottom-0 left-0 right-0 z-50
           flex items-center justify-around
-          bg-white border-t border-gray-200
+          bg-[#0a0a0a] border-t border-gray-200
           py-[8px] text-[14px] font-[500] text-[#48484A]
         "
       >
