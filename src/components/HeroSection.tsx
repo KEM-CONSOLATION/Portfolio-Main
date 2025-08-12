@@ -11,7 +11,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="mb-10" id="home">
+    <div className="mb-10 overflow-hidden" id="home">
       <section className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 py-12">
         <div className="flex-shrink-0 mx-auto md:mx-0" data-aos="fade-right">
           <div

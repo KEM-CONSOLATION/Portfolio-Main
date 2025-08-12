@@ -50,7 +50,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <div className="mb-[100px]" id="experience">
+    <div className="mb-[100px] overflow-hidden" id="experience">
       <div className="space-y-[8px]" data-aos="fade-up">
         <p className="font-[500] text-[35px] md:text-[40px]">Experience</p>
         <p className="font-[500] text-[15px] md:text-[20px]">
