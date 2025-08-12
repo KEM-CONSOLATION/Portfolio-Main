@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="fixed bottom-24 left-6 z-50 animate-bounce">
+      <div className="fixed bottom-8 left-6 z-50 animate-bounce">
         <button onClick={scrollToTop}>
           <Image
             src="/Assets/ArrowUp.png"
@@ -24,7 +24,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="fixed bottom-24 right-6 z-50 animate-pulse">
+      <div className="fixed bottom-8 right-6 z-50 animate-pulse">
         <a
           href="https://wa.me/2347031896845"
           target="_blank"
