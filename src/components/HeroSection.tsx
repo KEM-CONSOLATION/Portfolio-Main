@@ -52,17 +52,16 @@ const HeroSection = () => {
             I&apos;m Consolation Lotachi Kem
           </p>
           <h1 className="font-bold text-[36px] md:text-[56px] leading-tight">
-            Snr. Frontend Developer
+            FrontEnd Engineer
           </h1>
           <p className="font-normal text-[14px] md:text-[16px] text-justify md:text-left ">
-            I craft high-performing, scalable, and visually engaging web
-            applications that align with business objectives. With extensive
-            expertise in modern JavaScript frameworks, UX/UI best practices, and
-            product strategy, I ensure every interface delivers measurable
-            value. I lead cross-functional collaboration using tools like Jira,
-            Microsoft Suite, Figma, and Google Workspace — driving efficiency,
-            innovation, and exceptional user experiences from concept to
-            deployment.
+            With over 4 years of Industry experience specializing in building
+            functional web applications by crafting efficient, maintainable, and
+            testable client Code. Collaborative and solution-driven, Proficient
+            in JavaScript, React.js, Next.js, and TypeScript with hands-on
+            experience in API Integration. I excel in translating design mockups
+            into user-centric applications. Eager to contribute expertise to
+            innovative projects.
           </p>
           <div
             className="p-[10px] rounded-[8px]  bg-[#48484A] dark:bg-[#FFFFFF] inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-colors duration-200"

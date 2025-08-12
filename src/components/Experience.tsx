@@ -18,7 +18,7 @@ const experiences = [
     ],
   },
   {
-    role: "Senior Frontend Developer | Digital Nexus, Lagos, Nigeria",
+    role: "  FrontEnd Engineer | Digital Nexus, Lagos, Nigeria",
     period: "May 2022 – Dec 2024 (Hybrid)",
     details: [
       "Led frontend architecture for enterprise SaaS applications serving 10k+ daily users.",
@@ -28,7 +28,7 @@ const experiences = [
     ],
   },
   {
-    role: "Frontend Developer | WebFlow Studios, Remote",
+    role: "FrontEnd Engineer | WebFlow Studios, Remote",
     period: "Jan 2020 – Apr 2022 (Remote)",
     details: [
       "Built responsive marketing websites for clients across finance, health, and e-commerce.",

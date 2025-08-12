@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Consolation Lotachi Kem | Frontend Developer Portfolio",
+  title: "Consolation Lotachi Kem | FrontEnd Engineer Portfolio",
   description:
-    "Portfolio of Consolation Lotachi Kem, a skilled Frontend Developer specializing in React, Next.js, TypeScript, and modern web technologies.",
+    "Portfolio of Consolation Lotachi Kem, a skilled FrontEnd Engineer specializing in React, Next.js, TypeScript, and modern web technologies.",
   keywords: [
     "Consolation Lotachi Kem",
-    "Frontend Developer",
+    "FrontEnd Engineer",
     "React Developer",
     "Next.js Portfolio",
     "TypeScript Developer",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     canonical: "https://techieconso.vercel.app",
   },
   openGraph: {
-    title: "Consolation Lotachi Kem | Frontend Developer Portfolio",
+    title: "Consolation Lotachi Kem | FrontEnd Engineer Portfolio",
     description:
-      "Explore my projects, skills, and experience as a Frontend Developer specializing in modern, responsive, and high-performance web applications.",
+      "Explore my projects, skills, and experience as a FrontEnd Engineer specializing in modern, responsive, and high-performance web applications.",
     url: "https://techieconso.vercel.app",
     siteName: "Consolation Lotachi Kem Portfolio",
     images: [
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consolation Lotachi Kem | Frontend Developer Portfolio",
+    title: "Consolation Lotachi Kem | FrontEnd Engineer Portfolio",
     description:
-      "Explore my projects, skills, and experience as a Frontend Developer specializing in modern, responsive, and high-performance web applications.",
+      "Explore my projects, skills, and experience as a FrontEnd Engineer specializing in modern, responsive, and high-performance web applications.",
     images: ["/Assets/Pic1.JPG"],
     creator: "@techieconso",
   },

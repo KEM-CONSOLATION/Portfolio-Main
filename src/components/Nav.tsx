@@ -51,7 +51,7 @@ const Nav = () => {
           </div>
           <div className="space-y-[8px]">
             <p className="font-[500] text-[18px] md:text-[20px]">
-              Senior Frontend Developer
+              FrontEnd Engineer
             </p>
             <p className="font-[400] text-[14px] md:text-[16px]">
               Consolation Lotachi Kem
