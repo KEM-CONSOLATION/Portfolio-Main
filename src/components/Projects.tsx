@@ -35,7 +35,7 @@ const Projects = () => {
   ];
 
   return (
-    <div className="  overflow-hidden" id="projects">
+    <div className="mb-[100px] overflow-hidden" id="projects">
       <div className="space-y-[8px]" data-aos="fade-up">
         <p className="font-[500] text-[35px] md:text-[40px]">Projects</p>
         <p className="font-[500] text-[15px] md:text-[20px]">
