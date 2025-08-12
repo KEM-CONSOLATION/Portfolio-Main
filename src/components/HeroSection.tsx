@@ -54,7 +54,7 @@ const HeroSection = () => {
           <h1 className="font-bold text-[36px] md:text-[56px] leading-tight">
             Snr. Frontend Developer
           </h1>
-          <p className="font-normal text-[14px] md:text-[16px] text-justify md:text-left text-gray-700">
+          <p className="font-normal text-[14px] md:text-[16px] text-justify md:text-left ">
             I craft high-performing, scalable, and visually engaging web
             applications that align with business objectives. With extensive
             expertise in modern JavaScript frameworks, UX/UI best practices, and

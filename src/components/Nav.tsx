@@ -27,15 +27,15 @@ const Nav = () => {
     <div className={isScrolled ? "pb-[70px]" : ""}>
       <div
         className={`
-          hidden md:flex items-start justify-between
-          transition-all duration-500 ease-in-out
-          ${
-            isScrolled
-              ? "fixed bottom-0 left-0 right-0 bg-[#0a0a0a] shadow-lg border-t z-50 py-3"
-              : "sticky top-0 bg-[#0a0a0a]"
-          }
-        `}
-        data-aos={isScrolled ? "fade-up" : "fade-down"}
+    hidden md:flex items-start justify-between
+    transition-all duration-500 ease-in-out
+    ${
+      isScrolled
+        ? "fixed top-0 left-0 right-0 bg-[#0a0a0a] shadow-lg border-b z-50 py-3"
+        : "sticky top-0 bg-[#0a0a0a]"
+    }
+  `}
+        data-aos={isScrolled ? "fade-down" : "fade-down"}
       >
         <div className="flex items-center gap-[16px]">
           <div className="overflow-hidden max-h-[52px] max-w-[52px] rounded-full bg-[#48484A] border-2 border-white">
@@ -60,7 +60,7 @@ const Nav = () => {
         </div>
 
         <div
-          className="flex items-center gap-[16px] text-[16px] font-[500] text-[#48484A]"
+          className="flex items-center gap-[16px] text-[16px] font-[500]"
           data-aos="fade-left"
         >
           <a href="#home" className="p-[8px]">
@@ -111,7 +111,7 @@ const Nav = () => {
 
       {isScrolled && (
         <div
-          className="md:hidden fixed bottom-0 left-0 right-0 z-50
+          className="
           flex items-center justify-between
           bg-[#0a0a0a] border-t border-gray-200
           py-[12px] px-[16px]"

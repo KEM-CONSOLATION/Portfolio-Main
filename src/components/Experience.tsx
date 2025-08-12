@@ -68,7 +68,9 @@ const Experience = () => {
           >
             <button
               onClick={() => toggleIndex(index)}
-              className="w-full flex justify-between items-center py-[16px] px-[16px] border-b border-[#D9D9D9] focus:outline-none cursor-pointer"
+              className={`w-full flex justify-between items-center py-[16px] px-[16px] 
+    ${openIndex === index ? "border-b border-[#D9D9D9]" : ""} 
+    focus:outline-none cursor-pointer`}
             >
               <div>
                 <p className="font-[700] text-[16px] md:text-[18px] text-left">

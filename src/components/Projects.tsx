@@ -63,7 +63,7 @@ const Projects = () => {
               <h1 className="font-bold text-[36px] md:text-[56px] leading-tight hidden">
                 {project.role}
               </h1>
-              <p className="font-normal text-[14px] md:text-[16px] text-justify md:text-left text-gray-400">
+              <p className="font-normal text-[14px] md:text-[16px] text-justify md:text-left ">
                 {project.description}
               </p>
 
