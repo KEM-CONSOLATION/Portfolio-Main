@@ -62,7 +62,7 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className="bg-[#48484A] rounded-[8px] overflow-hidden"
+            className="bg-[#f5f5f5] dark:bg-[#48484A] rounded-[8px] overflow-hidden"
             data-aos="fade-up"
             data-aos-delay={index * 150}
           >
