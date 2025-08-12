@@ -81,9 +81,9 @@ const Experience = () => {
                 </p>
               </div>
               {openIndex === index ? (
-                <FaChevronUp className="text-white text-[18px]" />
+                <FaChevronUp className="text-[#000000] dark:text-white text-[18px]" />
               ) : (
-                <FaChevronDown className="text-white text-[18px]" />
+                <FaChevronDown className=" text-[#000000] dark:text-white text-[18px]" />
               )}
             </button>
 
