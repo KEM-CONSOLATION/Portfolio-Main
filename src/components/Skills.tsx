@@ -59,7 +59,7 @@ const Skills = () => {
                   height={24}
                   loading="lazy"
                 />
-                <p className="font-[400] text-[14px] text-[#E7E8EA]">{skill}</p>
+                <p className="font-[400] text-[14px]  ">{skill}</p>
               </div>
             ))}
           </div>
@@ -80,7 +80,7 @@ const Skills = () => {
                 height={24}
                 loading="lazy"
               />
-              <p className="font-[400] text-[14px] text-[#E7E8EA]">{cert}</p>
+              <p className="font-[400] text-[14px] ">{cert}</p>
             </div>
           ))}
         </div>

@@ -65,7 +65,7 @@ const HeroSection = () => {
             deployment.
           </p>
           <div
-            className="p-[10px] rounded-[8px] bg-[#FFFFFF] inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-colors duration-200"
+            className="p-[10px] rounded-[8px]  bg-[#48484A] dark:bg-[#FFFFFF] inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-colors duration-200"
             data-aos="zoom-in"
           >
             <p className="font-[500] text-[16px] text-[#48484A]">
