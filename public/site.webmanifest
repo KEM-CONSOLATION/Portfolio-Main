@@ -1,0 +1,30 @@
+{
+  "name": "Consolation Lotachi Kem Portfolio",
+  "short_name": "Consolation Portfolio",
+  "description": "FrontEnd Engineer Portfolio showcasing web development projects and skills",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["technology", "portfolio", "web-development"],
+  "lang": "en",
+  "dir": "ltr"
+}
