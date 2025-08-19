@@ -63,20 +63,26 @@ const HeroSection = () => {
             into user-centric applications. Eager to contribute expertise to
             innovative projects.
           </p>
-          <div
-            className="p-[10px] rounded-[8px]  bg-[#48484A] dark:bg-[#FFFFFF] inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-colors duration-200"
-            data-aos="zoom-in"
+          <a
+            href="https://drive.google.com/file/d/14mVGjl4oewshZzNti4FtC_b8V2Jwhidh/view?usp=sharing"
+            
+            target="_blank"
           >
-            <p className="font-[500] text-[16px] text-[#ffffff] dark:text-[#48484A]">
-              View My Resume
-            </p>
-            <Image
-              src="/Assets/link-square-02.svg"
-              alt="Resume Link"
-              width={24}
-              height={24}
-            />
-          </div>
+            <div
+              className="p-[10px] rounded-[8px]  bg-[#48484A] dark:bg-[#FFFFFF] inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-colors duration-200"
+              data-aos="zoom-in"
+            >
+              <p className="font-[500] text-[16px] text-[#ffffff] dark:text-[#48484A]">
+                View My Resume
+              </p>
+              <Image
+                src="/Assets/link-square-02.svg"
+                alt="Resume Link"
+                width={24}
+                height={24}
+              />
+            </div>
+          </a>
         </div>
       </section>
 

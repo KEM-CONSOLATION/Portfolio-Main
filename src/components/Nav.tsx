@@ -95,9 +95,20 @@ const Nav = () => {
           py-[12px] px-[16px]"
           data-aos="fade-down"
         >
-          <p className="text-white font-[500] text-[16px]">
-            Consolation Lotachi Kem
-          </p>
+          <div
+          className="flex items-center gap-[16px] text-[14px] font-[500]"
+          data-aos="fade-left"
+        >
+          <a href="#home" className="p-[8px]">
+            Home
+          </a>
+          <a href="#experience" className="p-[8px]">
+            Experience
+          </a>
+          <a href="#projects" className="p-[8px]">
+            Projects
+          </a>
+        </div>
           <a href="https://github.com/KEM-CONSOLATION" target="_blank">
             <Image
               src="/Assets/gitHubIcon.svg"
@@ -106,6 +117,7 @@ const Nav = () => {
               height={28}
             />
           </a>
+          
         </div>
       )}
 
