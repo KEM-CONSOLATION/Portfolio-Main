@@ -10,106 +10,109 @@ const HeroSection = () => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
-  return (
-    <div className="mb-10 overflow-hidden" id="home">
-      <section className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 py-12">
-        <div className="flex-shrink-0 mx-auto md:mx-0" data-aos="fade-right">
-          <div
-            className="
-              max-h-[350px] max-w-[350px] 
-              border-4 border-[#1e1e1e] shadow-lg overflow-hidden
-              rounded-none md:rounded-full
-              bg-gradient-to-r from-blue-500 to-purple-500
-            "
-          >
-            <Image
-              src="/Assets/Pic2.JPG"
-              alt="Profile Picture - Mobile"
-              width={350}
-              height={350}
-              loading="lazy"
-              priority={false}
-              className="object-cover w-full h-full block md:hidden"
-            />
+  const socialLinks = [
+    { href: "https://ng.linkedin.com/in/kem-consolation", label: "LinkedIn" },
+    { href: "https://www.youtube.com/@TechieConso", label: "YouTube" },
+    { href: "https://x.com/Techie_Conso/", label: "Twitter" },
+    { href: "https://www.instagram.com/techie_conso/", label: "Instagram" },
+  ];
 
-            <Image
-              src="/Assets/Pic1.JPG"
-              alt="Profile Picture - Desktop"
-              width={350}
-              height={350}
-              loading="lazy"
-              priority={false}
-              className="object-cover w-full h-full hidden md:block"
-            />
+  return (
+    <section className="min-h-screen flex flex-col justify-center py-20" id="home">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Profile Image */}
+          <div className="order-2 lg:order-1 flex justify-center lg:justify-start" data-aos="fade-right">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
+                <Image
+                  src="/Assets/Pic1.JPG"
+                  alt="Consolation Lotachi Kem - FrontEnd Engineer"
+                  width={400}
+                  height={400}
+                  className="object-cover w-full h-full"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="order-1 lg:order-2 text-center lg:text-left space-y-6" data-aos="fade-left">
+            <div className="space-y-4">
+              <p className="text-xl lg:text-2xl font-medium text-gray-300">
+                Hello, I&apos;m
+              </p>
+              <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+                <span className="text-white">Consolation</span>
+                <br />
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Lotachi Kem
+                </span>
+              </h1>
+              <h2 className="text-2xl lg:text-3xl font-semibold text-gray-300">
+                FrontEnd Engineer
+              </h2>
+            </div>
+
+            <p className="text-base lg:text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              With over 4 years of industry experience specializing in building
+              functional web applications by crafting efficient, maintainable, and
+              testable client code. Collaborative and solution-driven, proficient
+              in JavaScript, React.js, Next.js, and TypeScript with hands-on
+              experience in API integration. I excel in translating design mockups
+              into user-centric applications.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="https://drive.google.com/file/d/14mVGjl4oewshZzNti4FtC_b8V2Jwhidh/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                data-aos="zoom-in"
+              >
+                <span>View My Resume</span>
+                <Image
+                  src="/Assets/link-square-02.svg"
+                  alt="Resume Link"
+                  width={20}
+                  height={20}
+                  className="group-hover:rotate-45 transition-transform duration-300"
+                />
+              </a>
+              
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay="100"
+              >
+                View My Work
+              </a>
+            </div>
           </div>
         </div>
 
-        <div
-          className="max-w-[700px] text-center md:text-left space-y-4"
-          data-aos="fade-left"
-        >
-          <p className="font-medium text-[20px] md:text-[24px]">
-            I&apos;m Consolation Lotachi Kem
-          </p>
-          <h1 className="font-bold text-[36px] md:text-[56px] leading-tight">
-            FrontEnd Engineer
-          </h1>
-          <p className="font-normal text-[14px] md:text-[16px] text-justify md:text-left ">
-            With over 4 years of Industry experience specializing in building
-            functional web applications by crafting efficient, maintainable, and
-            testable client Code. Collaborative and solution-driven, Proficient
-            in JavaScript, React.js, Next.js, and TypeScript with hands-on
-            experience in API Integration. I excel in translating design mockups
-            into user-centric applications. Eager to contribute expertise to
-            innovative projects.
-          </p>
-          <a
-            href="https://drive.google.com/file/d/14mVGjl4oewshZzNti4FtC_b8V2Jwhidh/view?usp=sharing"
-            
-            target="_blank"
-          >
-            <div
-              className="p-[10px] rounded-[8px]  bg-[#48484A] dark:bg-[#FFFFFF] inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-colors duration-200"
-              data-aos="zoom-in"
+        {/* Social Links */}
+        <div className="mt-16 flex flex-wrap justify-center gap-8" data-aos="fade-up" data-aos-delay="200">
+          {socialLinks.map((link, index) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors duration-300 font-medium text-lg hover:scale-110 transform"
+              data-aos="fade-up"
+              data-aos-delay={300 + index * 100}
             >
-              <p className="font-[500] text-[16px] text-[#ffffff] dark:text-[#48484A]">
-                View My Resume
-              </p>
-              <Image
-                src="/Assets/link-square-02.svg"
-                alt="Resume Link"
-                width={24}
-                height={24}
-              />
-            </div>
-          </a>
+              {link.label}
+            </a>
+          ))}
         </div>
-      </section>
-
-      <div
-        className="max-w-[600px] mx-auto flex flex-wrap items-center justify-between"
-        data-aos="fade-up"
-      >
-        <p className="font-[500] text-[16px]">
-          <a href="https://ng.linkedin.com/in/kem-consolation"> LinkedIn</a>
-        </p>
-        <p className="font-[500] text-[16px]">
-          <a href="https://www.youtube.com/@TechieConso" target="_blank">
-            Youtube
-          </a>
-        </p>
-        <p className="font-[500] text-[16px]">
-          <a href="https://x.com/Techie_Conso/" target="_blank">
-            Twitter
-          </a>
-        </p>
-        <p className="font-[500] text-[16px]">
-          <a href="https://www.instagram.com/techie_conso/" target="_blank">
-            Instagram
-          </a>
-        </p>
       </div>
-    </div>
+    </section>
   );
 };
 

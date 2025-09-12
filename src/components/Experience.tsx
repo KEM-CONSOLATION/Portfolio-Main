@@ -1,14 +1,26 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const experiences = [
+interface Experience {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  type: string;
+  details: string[];
+}
+
+const experiences: Experience[] = [
   {
-    role: "Lead Frontend Engineer | Beyond Tech, Calabar, Nigeria",
-    period: "January 2025 – Present (Remote, Contract)",
+    role: "Lead Frontend Engineer",
+    company: "Beyond Tech",
+    location: "Calabar, Nigeria",
+    period: "January 2025 – Present",
+    type: "Remote, Contract",
     details: [
       "Leading the frontend development of Work&Shop, a platform connecting skilled professionals, vendors, and customers.",
       "Architecting and implementing scalable React and Next.js solutions to enhance performance and maintainability.",
@@ -18,8 +30,11 @@ const experiences = [
     ],
   },
   {
-    role: "  FrontEnd Engineer | Digital Nexus, Lagos, Nigeria",
-    period: "May 2022 – Dec 2024 (Hybrid)",
+    role: "FrontEnd Engineer",
+    company: "Digital Nexus",
+    location: "Lagos, Nigeria",
+    period: "May 2022 – Dec 2024",
+    type: "Hybrid",
     details: [
       "Led frontend architecture for enterprise SaaS applications serving 10k+ daily users.",
       "Implemented design systems with Tailwind CSS and React for consistent UI/UX.",
@@ -28,8 +43,11 @@ const experiences = [
     ],
   },
   {
-    role: "FrontEnd Engineer | WebFlow Studios, Remote",
-    period: "Jan 2020 – Apr 2022 (Remote)",
+    role: "FrontEnd Engineer",
+    company: "WebFlow Studios",
+    location: "Remote",
+    period: "Jan 2020 – Apr 2022",
+    type: "Remote",
     details: [
       "Built responsive marketing websites for clients across finance, health, and e-commerce.",
       "Integrated APIs and CMS systems for dynamic content management.",
@@ -50,60 +68,85 @@ const Experience = () => {
   }, []);
 
   return (
-    <div className="mb-[100px] overflow-hidden" id="experience">
-      <div className="space-y-[8px]" data-aos="fade-up">
-        <p className="font-[500] text-[35px] md:text-[40px]">Experience</p>
-        <p className="font-[500] text-[15px] md:text-[20px]">
-          Navigating my professional journey, one role at a time
-        </p>
-      </div>
+    <section className="py-20" id="experience">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+            Professional Experience
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Navigating my professional journey, one role at a time
+          </p>
+        </div>
 
-      <div className="mt-[32px] space-y-[16px]">
-        {experiences.map((exp, index) => (
-          <div
-            key={index}
-            className="bg-[#f5f5f5] dark:bg-[#48484A] rounded-[8px] overflow-hidden"
-            data-aos="fade-up"
-            data-aos-delay={index * 150}
-          >
-            <button
-              onClick={() => toggleIndex(index)}
-              className={`w-full flex justify-between items-center py-[16px] px-[16px] 
-    ${openIndex === index ? "border-b border-[#D9D9D9]" : ""} 
-    focus:outline-none cursor-pointer`}
-            >
-              <div>
-                <p className="font-[700] text-[16px] md:text-[18px] text-left">
-                  {exp.role}
-                </p>
-                <p className="font-[400] text-[12px] md:text-[14px]">
-                  {exp.period}
-                </p>
-              </div>
-              {openIndex === index ? (
-                <FaChevronUp className="text-[#000000] dark:text-white text-[18px]" />
-              ) : (
-                <FaChevronDown className=" text-[#000000] dark:text-white text-[18px]" />
-              )}
-            </button>
-
+        <div className="space-y-6">
+          {experiences.map((exp, index) => (
             <div
-              className={`transition-all duration-300 ease-in-out ${
-                openIndex === index
-                  ? "max-h-[500px] opacity-100"
-                  : "max-h-0 opacity-0 overflow-hidden"
-              }`}
+              key={index}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300"
+              data-aos="fade-up"
+              data-aos-delay={index * 150}
             >
-              <div className="py-[16px] px-[16px] text-[14px] md:text-[16px] font-[400] space-y-[8px]">
-                {exp.details.map((detail, i) => (
-                  <p key={i}>{detail}</p>
-                ))}
+              <button
+                onClick={() => toggleIndex(index)}
+                className="w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+                aria-expanded={openIndex === index}
+                aria-controls={`experience-${index}`}
+              >
+                <div className="flex justify-between items-start">
+                  <div className="flex-1">
+                    <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
+                      {exp.role}
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-4 text-gray-300 mb-3">
+                      <span className="font-semibold text-blue-400">{exp.company}</span>
+                      <div className="flex items-center gap-1 text-sm">
+                        <FaMapMarkerAlt className="w-3 h-3" />
+                        <span>{exp.location}</span>
+                      </div>
+                      <div className="flex items-center gap-1 text-sm">
+                        <FaCalendarAlt className="w-3 h-3" />
+                        <span>{exp.period}</span>
+                      </div>
+                    </div>
+                    <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-500/30">
+                      {exp.type}
+                    </span>
+                  </div>
+                  <div className="ml-4 flex-shrink-0">
+                    {openIndex === index ? (
+                      <FaChevronUp className="text-white text-lg" />
+                    ) : (
+                      <FaChevronDown className="text-white text-lg" />
+                    )}
+                  </div>
+                </div>
+              </button>
+
+              <div
+                id={`experience-${index}`}
+                className={`transition-all duration-300 ease-in-out ${
+                  openIndex === index
+                    ? "max-h-[500px] opacity-100"
+                    : "max-h-0 opacity-0 overflow-hidden"
+                }`}
+              >
+                <div className="px-6 pb-6 border-t border-white/10">
+                  <ul className="space-y-3 pt-4">
+                    {exp.details.map((detail, i) => (
+                      <li key={i} className="flex items-start gap-3 text-gray-300">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-sm lg:text-base leading-relaxed">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
