@@ -71,10 +71,10 @@ const Experience = () => {
     <section className="py-20" id="experience">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Professional Experience
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Navigating my professional journey, one role at a time
           </p>
         </div>
@@ -83,7 +83,7 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300"
+              className="bg-card backdrop-blur-sm border border-border rounded-xl overflow-hidden hover:bg-accent transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 150}
             >
@@ -95,11 +95,11 @@ const Experience = () => {
               >
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
-                    <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
+                    <h3 className="text-xl lg:text-2xl font-bold text-card-foreground mb-2">
                       {exp.role}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-4 text-gray-300 mb-3">
-                      <span className="font-semibold text-blue-400">{exp.company}</span>
+                    <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-3">
+                      <span className="font-semibold text-primary">{exp.company}</span>
                       <div className="flex items-center gap-1 text-sm">
                         <FaMapMarkerAlt className="w-3 h-3" />
                         <span>{exp.location}</span>
@@ -109,15 +109,15 @@ const Experience = () => {
                         <span>{exp.period}</span>
                       </div>
                     </div>
-                    <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-500/30">
+                    <span className="inline-block px-3 py-1 bg-primary/20 text-primary text-sm rounded-full border border-primary/30">
                       {exp.type}
                     </span>
                   </div>
                   <div className="ml-4 flex-shrink-0">
                     {openIndex === index ? (
-                      <FaChevronUp className="text-white text-lg" />
+                      <FaChevronUp className="text-card-foreground text-lg" />
                     ) : (
-                      <FaChevronDown className="text-white text-lg" />
+                      <FaChevronDown className="text-card-foreground text-lg" />
                     )}
                   </div>
                 </div>
@@ -131,11 +131,11 @@ const Experience = () => {
                     : "max-h-0 opacity-0 overflow-hidden"
                 }`}
               >
-                <div className="px-6 pb-6 border-t border-white/10">
+                <div className="px-6 pb-6 border-t border-border">
                   <ul className="space-y-3 pt-4">
                     {exp.details.map((detail, i) => (
-                      <li key={i} className="flex items-start gap-3 text-gray-300">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                         <span className="text-sm lg:text-base leading-relaxed">{detail}</span>
                       </li>
                     ))}

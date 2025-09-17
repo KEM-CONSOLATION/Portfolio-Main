@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Arima, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ClientThemeProvider from "@/components/ClientThemeProvider";
 
 const arimaSans = Arima({
   variable: "--font-sans",
@@ -196,7 +197,9 @@ export default function RootLayout({
       <body
         className={`${arimaSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ClientThemeProvider>
+          {children}
+        </ClientThemeProvider>
       </body>
     </html>
   );

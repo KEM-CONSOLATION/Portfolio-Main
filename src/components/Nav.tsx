@@ -4,12 +4,15 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ThemeToggle from "./ThemeToggle";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
+    setMounted(true);
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80);
@@ -18,6 +21,31 @@ const Nav = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (!mounted) {
+    return (
+      <nav className="sticky top-0 bg-gray-900 text-white">
+        <div className="hidden md:flex items-center justify-between max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center gap-4">
+            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/20">
+              <Image
+                src="/Assets/Pic3.JPG"
+                alt="Profile Picture"
+                width={48}
+                height={48}
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="space-y-1">
+              <p className="font-medium text-lg">FrontEnd Engineer</p>
+              <p className="text-sm text-gray-300">Consolation Lotachi Kem</p>
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   const navLinks = [
     { href: "#home", label: "Home" },
@@ -28,8 +56,8 @@ const Nav = () => {
   return (
     <nav className={`transition-all duration-500 ease-in-out ${
       isScrolled 
-        ? "fixed top-0 left-0 right-0 bg-[#0a0a0a]/95 backdrop-blur-sm shadow-lg border-b border-gray-800 z-50" 
-        : "sticky top-0 bg-[#0a0a0a]"
+        ? "fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm shadow-lg border-b border-border z-50" 
+        : "sticky top-0 bg-background"
     }`}>
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center justify-between max-w-7xl mx-auto px-4 py-4">
@@ -55,7 +83,7 @@ const Nav = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 rounded-md hover:bg-white/10"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 px-3 py-2 rounded-md hover:bg-accent"
             >
               {link.label}
             </a>
@@ -64,7 +92,7 @@ const Nav = () => {
             href="https://github.com/KEM-CONSOLATION"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-md hover:bg-white/10 transition-colors duration-200"
+            className="p-2 rounded-md hover:bg-accent transition-colors duration-200"
             aria-label="GitHub Profile"
           >
             <Image
@@ -74,6 +102,7 @@ const Nav = () => {
               height={24}
             />
           </a>
+          <ThemeToggle />
         </div>
       </div>
 
@@ -98,7 +127,7 @@ const Nav = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
             >
               {link.label}
             </a>
@@ -117,6 +146,7 @@ const Nav = () => {
               height={20}
             />
           </a>
+          <ThemeToggle />
         </div>
       </div>
     </nav>

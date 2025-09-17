@@ -24,41 +24,50 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <>
+      <Nav />
+      
+      <main>
+        <HeroSection />
+        <Experience />
+        <Skills />
+        <Projects />
+      </main>
+
+      {/* Scroll to Top Button */}
       {showButton && (
-        <div className="fixed bottom-8 left-6 z-50 animate-bounce ">
-          <button onClick={scrollToTop} className=" cursor-pointer">
-            <Image
-              src="/Assets/ArrowUp.png"
-              alt="Scroll to Top"
-              width={40}
-              height={40}
-            />
-          </button>
-        </div>
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 left-6 z-50 p-3 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-110 animate-bounce"
+          aria-label="Scroll to top"
+        >
+          <Image
+            src="/Assets/ArrowUp.png"
+            alt="Scroll to Top"
+            width={24}
+            height={24}
+          />
+        </button>
       )}
 
-      <div className="fixed bottom-8 right-6 z-50 animate-pulse">
+      {/* WhatsApp Contact Button */}
+      <div className="fixed bottom-8 right-6 z-50">
         <a
           href="https://wa.me/2347031896845"
           target="_blank"
           rel="noopener noreferrer"
+          className="block hover:scale-105 transition-transform duration-300"
+          aria-label="Contact via WhatsApp"
         >
           <Image
             src="/Assets/WhatsappIcon.png"
-            alt="WhatsApp"
+            alt="WhatsApp Contact"
             width={200}
             height={50}
-            priority={true}
+            priority
           />
         </a>
       </div>
-
-      <Nav />
-      <HeroSection />
-      <Experience />
-      <Skills />
-      <Projects />
-    </div>
+    </>
   );
 }

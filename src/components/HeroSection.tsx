@@ -41,22 +41,22 @@ const HeroSection = () => {
           {/* Content */}
           <div className="order-1 lg:order-2 text-center lg:text-left space-y-6" data-aos="fade-left">
             <div className="space-y-4">
-              <p className="text-xl lg:text-2xl font-medium text-gray-300">
+              <p className="text-xl lg:text-2xl font-medium text-muted-foreground">
                 Hello, I&apos;m
               </p>
               <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                <span className="text-white">Consolation</span>
+                <span className="text-foreground">Consolation</span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   Lotachi Kem
                 </span>
               </h1>
-              <h2 className="text-2xl lg:text-3xl font-semibold text-gray-300">
+              <h2 className="text-2xl lg:text-3xl font-semibold text-muted-foreground">
                 FrontEnd Engineer
               </h2>
             </div>
 
-            <p className="text-base lg:text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
               With over 4 years of industry experience specializing in building
               functional web applications by crafting efficient, maintainable, and
               testable client code. Collaborative and solution-driven, proficient
@@ -85,7 +85,7 @@ const HeroSection = () => {
               
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-border text-foreground font-semibold rounded-lg hover:bg-accent transition-all duration-300"
                 data-aos="zoom-in"
                 data-aos-delay="100"
               >
@@ -103,7 +103,7 @@ const HeroSection = () => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors duration-300 font-medium text-lg hover:scale-110 transform"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium text-lg hover:scale-110 transform"
               data-aos="fade-up"
               data-aos-delay={300 + index * 100}
             >
