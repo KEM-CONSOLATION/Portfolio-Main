@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 interface Experience {
   role: string;
@@ -89,10 +87,6 @@ const Experience = () => {
   const toggleIndex = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true, offset: 100 });
-  }, []);
 
   return (
     <section className="py-20" id="experience">

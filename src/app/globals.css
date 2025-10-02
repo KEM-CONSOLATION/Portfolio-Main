@@ -76,6 +76,7 @@
 }
 
 body {
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
@@ -115,3 +116,13 @@ html {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
+
+/* AOS overflow fixes */
+.aos-init {
+  overflow: visible !important;
+}
+
+[data-aos] {
+  overflow: visible !important;
+}
+

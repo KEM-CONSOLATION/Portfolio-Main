@@ -1,14 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 
 const Skills = () => {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
 
   const skillCategories = [
     {

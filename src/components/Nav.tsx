@@ -2,25 +2,43 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import ThemeToggle from "./ThemeToggle";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
     setMounted(true);
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80);
     };
 
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeMobileMenu();
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("keydown", handleEscape);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("keydown", handleEscape);
+    };
   }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   if (!mounted) {
     return (
@@ -122,33 +140,109 @@ const Nav = () => {
           <p className="text-white font-medium text-sm">Consolation Kem</p>
         </div>
 
-        <div className="flex items-center gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="https://github.com/KEM-CONSOLATION"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-1"
-            aria-label="GitHub Profile"
-          >
-            <Image
-              src="/Assets/gitHubIcon.svg"
-              alt="GitHub Icon"
-              width={20}
-              height={20}
-            />
-          </a>
+        <div className="flex items-center gap-3">
           <ThemeToggle />
+          <button
+            onClick={toggleMobileMenu}
+            className="p-2 rounded-md hover:bg-accent transition-colors duration-200"
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? (
+              <FaTimes className="w-5 h-5 text-foreground" />
+            ) : (
+              <FaBars className="w-5 h-5 text-foreground" />
+            )}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-background/95 backdrop-blur-sm z-50"
+          onClick={closeMobileMenu}
+        >
+          <div 
+            className="flex flex-col h-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Mobile Menu Header */}
+            <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+              <div className="flex items-center gap-3">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/20">
+                  <Image
+                    src="/Assets/Pic3.JPG"
+                    alt="Profile Picture"
+                    width={40}
+                    height={40}
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <div>
+                  <p className="font-medium text-lg">Consolation Lotachi Kem</p>
+                  <p className="text-sm text-muted-foreground">FrontEnd Engineer</p>
+                </div>
+              </div>
+              <button
+                onClick={closeMobileMenu}
+                className="p-2 rounded-md hover:bg-accent transition-colors duration-200"
+                aria-label="Close mobile menu"
+              >
+                <FaTimes className="w-5 h-5 text-foreground" />
+              </button>
+            </div>
+
+            {/* Mobile Menu Links */}
+            <div className="flex-1 flex flex-col justify-center px-4 space-y-6">
+              {navLinks.map((link, index) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMobileMenu}
+                  className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-200 py-2"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  {link.label}
+                </a>
+              ))}
+              
+              {/* Social Links */}
+              <div className="flex justify-center gap-6 pt-8">
+                <a
+                  href="https://github.com/KEM-CONSOLATION"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full hover:bg-accent transition-colors duration-200"
+                  aria-label="GitHub Profile"
+                >
+                  <Image
+                    src="/Assets/gitHubIcon.svg"
+                    alt="GitHub Icon"
+                    width={24}
+                    height={24}
+                  />
+                </a>
+                <a
+                  href="https://ng.linkedin.com/in/kem-consolation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full hover:bg-accent transition-colors duration-200"
+                  aria-label="LinkedIn Profile"
+                >
+                  <Image
+                    src="/Assets/link-square-02.svg"
+                    alt="LinkedIn Icon"
+                    width={24}
+                    height={24}
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

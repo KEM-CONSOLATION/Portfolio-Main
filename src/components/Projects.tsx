@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 
 interface Project {
   name: string;
@@ -17,12 +15,6 @@ interface Project {
 }
 
 const Projects = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-    });
-  }, []);
 
   const projects: Project[] = [
     {
