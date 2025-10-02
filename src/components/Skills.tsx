@@ -59,23 +59,18 @@ const Skills = () => {
 
   const certifications = [
     {
-      name: "Google UX Design Professional Certificate",
-      issuer: "Google",
-      year: "2023"
-    },
-    {
-      name: "Meta Front-End Developer Professional Certificate",
-      issuer: "Meta",
-      year: "2023"
-    },
-    {
-      name: "JavaScript Algorithms and Data Structures",
-      issuer: "freeCodeCamp",
+      name: "Google Developer Student Clubs Lead",
+      issuer: "Google Developer Student Clubs",
       year: "2022"
     },
     {
-      name: "Advanced React and TypeScript",
-      issuer: "Udemy",
+      name: "Google Developer Student Clubs Core Team Member",
+      issuer: "Google Developer Student Clubs",
+      year: "2021"
+    },
+    {
+      name: "GDSC Commendation Letter",
+      issuer: "Google Developer Student Clubs",
       year: "2022"
     }
   ];
