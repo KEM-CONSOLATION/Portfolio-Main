@@ -39,6 +39,50 @@ const Projects = () => {
       github: "#",
       reverse: true,
     },
+    {
+      name: "Growth Group DC Website",
+      role: "Frontend Engineer",
+      description:
+        "A comprehensive church management platform built with Next.js and Sanity CMS. Features include event management, blog system, audio messages, weekly reports, and department management. The platform serves as a digital hub for church members with real-time content updates, member engagement tools, and administrative dashboards.",
+      tech: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind CSS", "Radix UI", "AOS"],
+      image: "/Assets/troo.png",
+      link: "#",
+      github: "#",
+      reverse: false,
+    },
+    {
+      name: "Ecomarine",
+      role: "Frontend Engineer",
+      description:
+        "A modern maritime services website for Ecomarine, featuring comprehensive information about container services, terminal operations, and shipping solutions. Built with Next.js and includes features like blog management, career listings, FAQ system, and responsive design optimized for the maritime industry.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "React Query", "Zustand"],
+      image: "/Assets/kurnode.png",
+      link: "#",
+      github: "#",
+      reverse: true,
+    },
+    {
+      name: "MagicGames",
+      role: "Frontend Engineer",
+      description:
+        "A gaming platform built with Next.js featuring user authentication, game management, campaign systems, and dashboard functionality. The platform includes phone verification, OTP authentication, subscription management, and a comprehensive gaming experience with real-time updates and user engagement features.",
+      tech: ["Next.js", "TypeScript", "Redux Toolkit", "React Query", "Zustand", "Zod"],
+      image: "/Assets/troo.png",
+      link: "#",
+      github: "#",
+      reverse: false,
+    },
+    {
+      name: "Premium & Classy",
+      role: "Frontend Engineer",
+      description:
+        "A professional event planning website built with Next.js and Sanity CMS. Features include portfolio showcase, service management, client testimonials, booking system, and contact forms. The website serves as a digital business card for event planners with integrated email services and responsive design.",
+      tech: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind CSS", "Framer Motion", "EmailJS"],
+      image: "/Assets/kurnode.png",
+      link: "#",
+      github: "#",
+      reverse: true,
+    },
   ];
 
   return (

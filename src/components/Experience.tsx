@@ -14,6 +14,24 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
+    role: "Frontend Engineer",
+    company: "Passion Tree Care Services Ltd",
+    location: "Chelmsford, England, United Kingdom",
+    period: "January 2025 – Present",
+    type: "Remote, Contract",
+    details: [
+      "Developed and maintained a comprehensive healthcare management platform for care providers, enabling seamless service user management, scheduling, and service transfers across multiple healthcare services including Reablement and Home-to-Assess programs.",
+      "Built complex multi-step forms with real-time validation, dynamic field rendering, and seamless data persistence using React Hook Form and Zod schema validation.",
+      "Implemented service transfer workflows with conditional logic, manager credential verification, and automatic service ending upon successful transfers.",
+      "Developed address lookup functionality integrating with external postcode APIs, implementing debounced search, district validation, and automatic address pre-population.",
+      "Created reusable UI components including custom date/time pickers, file upload systems, schedule modals, and form drawers using React and TypeScript.",
+      "Integrated multiple REST APIs for user management, service records, document uploads, and real-time data synchronization across different healthcare services.",
+      "Implemented state management using Zustand stores for complex form states, API responses, and user session management.",
+      "Built responsive interfaces with mobile-optimized layouts, custom animations, and accessibility features using Tailwind CSS.",
+      "Optimized form performance with lazy loading, memoization, and efficient re-rendering strategies for large datasets.",
+    ],
+  },
+  {
     role: "Lead Frontend Engineer",
     company: "Beyond Tech",
     location: "Calabar, Nigeria",
