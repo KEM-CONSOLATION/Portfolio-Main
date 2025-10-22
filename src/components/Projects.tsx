@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import type { EmblaCarouselType } from "embla-carousel";
 
 interface Project {
   name: string;
@@ -15,6 +18,37 @@ interface Project {
 }
 
 const Projects = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: "start",
+    skipSnaps: false,
+    dragFree: true,
+  }, [Autoplay({ delay: 4000, stopOnInteraction: false })]);
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi]
+  );
+
+  const onInit = useCallback((emblaApi: EmblaCarouselType) => {
+    setScrollSnaps(emblaApi.scrollSnapList());
+  }, []);
+
+  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, []);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    onInit(emblaApi);
+    onSelect(emblaApi);
+    emblaApi.on("reInit", onInit);
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onInit, onSelect]);
 
   const projects: Project[] = [
     {
@@ -97,7 +131,8 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="space-y-24">
+        {/* Desktop Layout */}
+        <div className="hidden lg:block space-y-24">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -135,7 +170,7 @@ const Projects = () => {
                 data-aos-delay="100"
               >
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3">
+                  <div className=" gap-y-3">
                     <h3 className="text-3xl lg:text-4xl font-bold text-foreground">
                       {project.name}
                     </h3>
@@ -202,6 +237,118 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Carousel Layout */}
+        <div className="lg:hidden">
+          <div className="embla" ref={emblaRef}>
+            <div className="embla__container flex">
+              {projects.map((project, index) => (
+                <div key={index} className="embla__slide flex-[0_0_100%] min-w-0 px-4">
+                  <div className="bg-card backdrop-blur-sm border border-border rounded-xl p-6 space-y-6">
+                    {/* Project Image */}
+                    <div className="relative group">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+                      <div className="relative rounded-xl overflow-hidden shadow-xl border border-border">
+                        <Image
+                          src={project.image}
+                          alt={`${project.name} Project Screenshot`}
+                          width={400}
+                          height={250}
+                          className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </div>
+                    </div>
+
+                    {/* Project Content */}
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <h3 className="text-2xl font-bold text-foreground">
+                          {project.name}
+                        </h3>
+                        <span className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full border border-primary/30">
+                          {project.role}
+                        </span>
+                      </div>
+                      
+                      <p className="text-muted-foreground text-base leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Tech Stack */}
+                    <div className="space-y-3">
+                      <h4 className="text-base font-semibold text-foreground">Tech Stack</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 bg-white/10 text-gray-300 rounded-md text-xs font-medium border border-white/20"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-col gap-3">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm"
+                      >
+                        <span>Live Demo</span>
+                        <Image
+                          src="/Assets/link-square-02.svg"
+                          alt="External Link"
+                          width={14}
+                          height={14}
+                          className="group-hover:rotate-45 transition-transform duration-300"
+                        />
+                      </a>
+                      
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 px-4 py-2 border-2 border-border text-foreground font-semibold rounded-lg hover:bg-accent transition-all duration-300 text-sm"
+                        >
+                          <Image
+                            src="/Assets/gitHubIcon.svg"
+                            alt="GitHub"
+                            width={16}
+                            height={16}
+                          />
+                          <span>GitHub</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Carousel Dots */}
+          <div className="flex justify-center mt-6 gap-2">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === selectedIndex
+                    ? "bg-primary scale-125"
+                    : "bg-muted-foreground/50 hover:bg-muted-foreground"
+                }`}
+                onClick={() => scrollTo(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
