@@ -137,7 +137,7 @@ const Nav = () => {
               priority
             />
           </div>
-          <p className="text-white font-medium text-sm">Consolation Kem</p>
+          <p className=" text-black dark:text-white font-medium text-sm">Consolation Kem</p>
         </div>
 
         <div className="flex items-center gap-3">
@@ -159,11 +159,11 @@ const Nav = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div 
-          className="md:hidden fixed inset-0 bg-background/95 backdrop-blur-sm z-50"
+          className="md:hidden fixed inset-0 bg-black/80 backdrop-blur-md"
           onClick={closeMobileMenu}
         >
           <div 
-            className="flex flex-col h-full"
+            className="flex flex-col h-full bg-background"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Mobile Menu Header */}
@@ -194,13 +194,13 @@ const Nav = () => {
             </div>
 
             {/* Mobile Menu Links */}
-            <div className="flex-1 flex flex-col justify-center px-4 space-y-6">
+            <div className="flex-1 flex flex-col justify-center px-4 space-y-4">
               {navLinks.map((link, index) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={closeMobileMenu}
-                  className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-200 py-2"
+                  className="text-2xl font-medium text-foreground hover:text-primary transition-all duration-200 py-4 px-6 rounded-xl bg-card hover:bg-accent border border-border hover:border-primary/30 hover:shadow-lg shadow-md"
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                 >
@@ -214,7 +214,7 @@ const Nav = () => {
                   href="https://github.com/KEM-CONSOLATION"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full hover:bg-accent transition-colors duration-200"
+                  className="p-3 rounded-full bg-card hover:bg-accent border border-border hover:border-primary/30 transition-all duration-200 shadow-md hover:shadow-lg"
                   aria-label="GitHub Profile"
                 >
                   <Image
@@ -222,13 +222,14 @@ const Nav = () => {
                     alt="GitHub Icon"
                     width={24}
                     height={24}
+                    className="filter brightness-0 invert"
                   />
                 </a>
                 <a
                   href="https://ng.linkedin.com/in/kem-consolation"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full hover:bg-accent transition-colors duration-200"
+                  className="p-3 rounded-full bg-card hover:bg-accent border border-border hover:border-primary/30 transition-all duration-200 shadow-md hover:shadow-lg"
                   aria-label="LinkedIn Profile"
                 >
                   <Image
@@ -236,6 +237,7 @@ const Nav = () => {
                     alt="LinkedIn Icon"
                     width={24}
                     height={24}
+                    className="filter brightness-0 invert"
                   />
                 </a>
               </div>
