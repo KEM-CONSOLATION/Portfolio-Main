@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const HeroSection = () => {
 
@@ -69,12 +70,8 @@ const HeroSection = () => {
                 data-aos="zoom-in"
               >
                 <span>View My Resume</span>
-                <Image
-                  src="/Assets/link-square-02.svg"
-                  alt="Resume Link"
-                  width={20}
-                  height={20}
-                  className="group-hover:rotate-45 transition-transform duration-300"
+                <FaExternalLinkAlt 
+                  className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300"
                 />
               </a>
               

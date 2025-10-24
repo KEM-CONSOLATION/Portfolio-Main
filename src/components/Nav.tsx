@@ -137,7 +137,9 @@ const Nav = () => {
               priority
             />
           </div>
-          <p className=" text-black dark:text-white font-medium text-sm">Consolation Kem</p>
+          <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+            <span className="text-white font-bold text-xs">CK</span>
+          </div>
         </div>
 
         <div className="flex items-center gap-3">
