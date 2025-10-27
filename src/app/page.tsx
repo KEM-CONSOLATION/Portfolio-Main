@@ -1,5 +1,6 @@
 "use client";
 import Experience from "@/components/Experience";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
@@ -34,11 +35,13 @@ export default function Home() {
         <Projects />
       </main>
 
+      <Footer />
+
       {/* Scroll to Top Button */}
       {showButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 left-6 z-50 p-3 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-110 animate-bounce"
+          className="fixed bottom-16 left-6 z-50 p-3 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-110 animate-bounce"
           aria-label="Scroll to top"
         >
           <Image
@@ -51,7 +54,7 @@ export default function Home() {
       )}
 
       {/* WhatsApp Contact Button */}
-      <div className="fixed bottom-8 right-6 z-50">
+      <div className="fixed bottom-16 right-6 z-50">
         <a
           href="https://wa.me/2347031896845"
           target="_blank"
