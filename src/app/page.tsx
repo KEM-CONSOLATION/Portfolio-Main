@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -41,7 +42,7 @@ export default function Home() {
       {showButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-16 left-6 z-50 p-3 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-110 animate-bounce"
+          className="fixed bottom-24 left-6 z-50 p-3 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-110 animate-bounce"
           aria-label="Scroll to top"
         >
           <Image
@@ -53,24 +54,8 @@ export default function Home() {
         </button>
       )}
 
-      {/* WhatsApp Contact Button */}
-      <div className="fixed bottom-16 right-6 z-50">
-        <a
-          href="https://wa.me/2347031896845"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block hover:scale-105 transition-transform duration-300"
-          aria-label="Contact via WhatsApp"
-        >
-          <Image
-            src="/Assets/WhatsappIcon.png"
-            alt="WhatsApp Contact"
-            width={200}
-            height={50}
-            priority
-          />
-        </a>
-      </div>
+      {/* WhatsApp Widget */}
+      <WhatsAppWidget />
     </>
   );
 }
