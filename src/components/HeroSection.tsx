@@ -20,7 +20,7 @@ const HeroSection = () => {
           {/* Profile Image */}
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start" data-aos="fade-right">
             <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
                 <Image
                   src="/Assets/Pic1.JPG"
@@ -43,7 +43,7 @@ const HeroSection = () => {
               <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <span className="text-foreground">Consolation</span>
                 <br />
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
                   Lotachi Kem
                 </span>
               </h1>
@@ -66,7 +66,7 @@ const HeroSection = () => {
                 href="https://drive.google.com/file/d/136GAlJZjlG9M-65oZ0lYXZns34H6S-1b/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 data-aos="zoom-in"
               >
                 <span>View My Resume</span>
