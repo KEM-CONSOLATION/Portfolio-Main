@@ -5,7 +5,6 @@ import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 const HeroSection = () => {
-
   const socialLinks = [
     { href: "https://ng.linkedin.com/in/kem-consolation", label: "LinkedIn" },
     { href: "https://www.youtube.com/@TechieConso", label: "YouTube" },
@@ -14,20 +13,26 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col justify-center py-20" id="home">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section
+      className="flex min-h-screen flex-col justify-center py-20"
+      id="home"
+    >
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Profile Image */}
-          <div className="order-2 lg:order-1 flex justify-center lg:justify-start" data-aos="fade-right">
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
+          <div
+            className="order-2 flex justify-center lg:order-1 lg:justify-start"
+            data-aos="fade-right"
+          >
+            <div className="group relative">
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500 to-emerald-500 opacity-75 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
+              <div className="relative h-80 w-80 overflow-hidden rounded-full border-4 border-white/20 shadow-2xl lg:h-96 lg:w-96">
                 <Image
                   src="/Assets/Pic1.JPG"
                   alt="Consolation Lotachi Kem - FrontEnd Engineer"
                   width={400}
                   height={400}
-                  className="object-cover w-full h-full"
+                  className="h-full w-full object-cover"
                   priority
                 />
               </div>
@@ -35,49 +40,50 @@ const HeroSection = () => {
           </div>
 
           {/* Content */}
-          <div className="order-1 lg:order-2 text-center lg:text-left space-y-6" data-aos="fade-left">
+          <div
+            className="order-1 space-y-6 text-center lg:order-2 lg:text-left"
+            data-aos="fade-left"
+          >
             <div className="space-y-4">
-              <p className="text-xl lg:text-2xl font-medium text-muted-foreground">
+              <p className="text-muted-foreground text-xl font-medium lg:text-2xl">
                 Hello, I&apos;m
               </p>
-              <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl leading-tight font-bold lg:text-6xl xl:text-7xl">
                 <span className="text-foreground">Consolation</span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
                   Lotachi Kem
                 </span>
               </h1>
-              <h2 className="text-2xl lg:text-3xl font-semibold text-muted-foreground">
+              <h2 className="text-muted-foreground text-2xl font-semibold lg:text-3xl">
                 FrontEnd Engineer
               </h2>
             </div>
 
-            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-muted-foreground mx-auto max-w-2xl text-base leading-relaxed lg:mx-0 lg:text-lg">
               With over 4 years of industry experience specializing in building
-              functional web applications by crafting efficient, maintainable, and
-              testable client code. Collaborative and solution-driven, proficient
-              in JavaScript, React.js, Next.js, and TypeScript with hands-on
-              experience in API integration. I excel in translating design mockups
-              into user-centric applications.
+              functional web applications by crafting efficient, maintainable,
+              and testable client code. Collaborative and solution-driven,
+              proficient in JavaScript, React.js, Next.js, and TypeScript with
+              hands-on experience in API integration. I excel in translating
+              design mockups into user-centric applications.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
               <a
                 href="https://drive.google.com/file/d/136GAlJZjlG9M-65oZ0lYXZns34H6S-1b/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="group inline-flex transform items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl"
                 data-aos="zoom-in"
               >
                 <span>View My Resume</span>
-                <FaExternalLinkAlt 
-                  className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300"
-                />
+                <FaExternalLinkAlt className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
               </a>
-              
+
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-border text-foreground font-semibold rounded-lg hover:bg-accent transition-all duration-300"
+                className="border-border text-foreground hover:bg-accent inline-flex items-center justify-center rounded-lg border-2 px-8 py-4 font-semibold transition-all duration-300"
                 data-aos="zoom-in"
                 data-aos-delay="100"
               >
@@ -88,14 +94,18 @@ const HeroSection = () => {
         </div>
 
         {/* Social Links */}
-        <div className="mt-16 flex flex-wrap justify-center gap-8" data-aos="fade-up" data-aos-delay="200">
+        <div
+          className="mt-16 flex flex-wrap justify-center gap-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           {socialLinks.map((link, index) => (
             <a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium text-lg hover:scale-110 transform"
+              className="text-muted-foreground hover:text-foreground transform text-lg font-medium transition-colors duration-300 hover:scale-110"
               data-aos="fade-up"
               data-aos-delay={300 + index * 100}
             >

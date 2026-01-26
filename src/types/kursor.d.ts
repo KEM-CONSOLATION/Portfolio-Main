@@ -1,4 +1,4 @@
-declare module 'kursor' {
+declare module "kursor" {
   interface KursorOptions {
     type?: number;
     removeDefaultCursor?: boolean;
@@ -14,4 +14,3 @@ declare module 'kursor' {
 
   export default Kursor;
 }
-

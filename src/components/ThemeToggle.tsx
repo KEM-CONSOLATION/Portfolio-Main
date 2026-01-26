@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { useTheme } from '@/contexts/ThemeContext';
-import { FaSun, FaMoon } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const ThemeToggle: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -15,11 +15,11 @@ const ThemeToggle: React.FC = () => {
   if (!mounted) {
     return (
       <button
-        className="relative p-3 rounded-lg bg-gray-700 hover:bg-gray-600 transition-all duration-300 group"
+        className="group relative rounded-lg bg-gray-700 p-3 transition-all duration-300 hover:bg-gray-600"
         aria-label="Theme toggle"
       >
-        <div className="relative w-6 h-6">
-          <FaMoon className="absolute inset-0 w-6 h-6 text-blue-300" />
+        <div className="relative h-6 w-6">
+          <FaMoon className="absolute inset-0 h-6 w-6 text-blue-300" />
         </div>
       </button>
     );
@@ -28,22 +28,22 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="relative p-3 rounded-lg bg-muted hover:bg-accent transition-all duration-300 group"
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      className="bg-muted hover:bg-accent group relative rounded-lg p-3 transition-all duration-300"
+      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
     >
-      <div className="relative w-6 h-6">
-        <FaSun 
-          className={`absolute inset-0 w-6 h-6 text-yellow-400 transition-all duration-300 ${
-            theme === 'light' 
-              ? 'opacity-100 rotate-0 scale-100' 
-              : 'opacity-0 rotate-180 scale-75'
+      <div className="relative h-6 w-6">
+        <FaSun
+          className={`absolute inset-0 h-6 w-6 text-yellow-400 transition-all duration-300 ${
+            theme === "light"
+              ? "scale-100 rotate-0 opacity-100"
+              : "scale-75 rotate-180 opacity-0"
           }`}
         />
-        <FaMoon 
-          className={`absolute inset-0 w-6 h-6 text-blue-300 transition-all duration-300 ${
-            theme === 'dark' 
-              ? 'opacity-100 rotate-0 scale-100' 
-              : 'opacity-0 -rotate-180 scale-75'
+        <FaMoon
+          className={`absolute inset-0 h-6 w-6 text-blue-300 transition-all duration-300 ${
+            theme === "dark"
+              ? "scale-100 rotate-0 opacity-100"
+              : "scale-75 -rotate-180 opacity-0"
           }`}
         />
       </div>

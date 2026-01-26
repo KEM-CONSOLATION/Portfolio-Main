@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 import { FaBars, FaTimes } from "react-icons/fa";
 
@@ -9,6 +11,8 @@ const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
@@ -25,12 +29,25 @@ const Nav = () => {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("keydown", handleEscape);
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("keydown", handleEscape);
     };
   }, []);
+
+  // Handle scrolling to hash after navigation
+  useEffect(() => {
+    if (pathname === "/" && window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      const element = document.getElementById(hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    }
+  }, [pathname]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -40,12 +57,28 @@ const Nav = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    // If it's a hash link and we're not on the home page, navigate to home first
+    if (href.startsWith("#") && pathname !== "/") {
+      e.preventDefault();
+      router.push(`/${href}`);
+      closeMobileMenu();
+    } else if (href.startsWith("#")) {
+      // If we're on home page, let default behavior handle smooth scroll
+      closeMobileMenu();
+    }
+    // For regular links (like /portfolio), let default behavior handle it
+  };
+
   if (!mounted) {
     return (
       <nav className="sticky top-0 bg-gray-900 text-white">
-        <div className="hidden md:flex items-center justify-between max-w-7xl mx-auto px-4 py-4">
+        <div className="mx-auto hidden max-w-7xl items-center justify-between px-4 py-4 md:flex">
           <div className="flex items-center gap-4">
-            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/20">
+            <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white/20">
               <Image
                 src="/Assets/Pic3.JPG"
                 alt="Profile Picture"
@@ -56,7 +89,7 @@ const Nav = () => {
               />
             </div>
             <div className="space-y-1">
-              <p className="font-medium text-lg">FrontEnd Engineer</p>
+              <p className="text-lg font-medium">FrontEnd Engineer</p>
               <p className="text-sm text-gray-300">Consolation Lotachi Kem</p>
             </div>
           </div>
@@ -69,18 +102,25 @@ const Nav = () => {
     { href: "#home", label: "Home" },
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
+    { href: "/portfolio", label: "Portfolio" },
   ];
 
   return (
-    <nav className={`transition-all duration-500 ease-in-out ${
-      isScrolled 
-        ? "fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm shadow-lg border-b border-border z-50" 
-        : "sticky top-0 bg-background"
-    }`}>
+    <nav
+      className={`transition-all duration-500 ease-in-out ${
+        isScrolled
+          ? "bg-background/95 border-border fixed top-0 right-0 left-0 z-50 border-b shadow-lg backdrop-blur-sm"
+          : "bg-background sticky top-0"
+      }`}
+    >
       {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center justify-between max-w-7xl mx-auto px-4 py-4">
-        <div className="flex items-center gap-4" data-aos="fade-right">
-          <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/20">
+      <div className="mx-auto hidden max-w-7xl items-center justify-between px-4 py-4 md:flex">
+        <Link
+          href="/"
+          className="flex items-center gap-4 transition-opacity hover:opacity-80"
+          data-aos="fade-right"
+        >
+          <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white/20">
             <Image
               src="/Assets/Pic3.JPG"
               alt="Profile Picture"
@@ -91,26 +131,35 @@ const Nav = () => {
             />
           </div>
           <div className="space-y-1">
-            <p className="font-medium text-lg">FrontEnd Engineer</p>
+            <p className="text-lg font-medium">FrontEnd Engineer</p>
             <p className="text-sm text-gray-300">Consolation Lotachi Kem</p>
           </div>
-        </div>
+        </Link>
 
         <div className="flex items-center gap-6" data-aos="fade-left">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200 px-3 py-2 rounded-md hover:bg-accent"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            // If it's a hash link and we're not on home, prepend "/"
+            const href =
+              link.href.startsWith("#") && pathname !== "/"
+                ? `/${link.href}`
+                : link.href;
+
+            return (
+              <a
+                key={link.href}
+                href={href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-muted-foreground hover:text-foreground hover:bg-accent rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <a
             href="https://github.com/KEM-CONSOLATION"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-md hover:bg-accent transition-colors duration-200"
+            className="hover:bg-accent rounded-md p-2 transition-colors duration-200"
             aria-label="GitHub Profile"
           >
             <Image
@@ -125,9 +174,12 @@ const Nav = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden flex items-center justify-between px-4 py-3">
-        <div className="flex items-center gap-3">
-          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-white/20">
+      <div className="flex items-center justify-between px-4 py-3 md:hidden">
+        <Link
+          href="/"
+          className="flex items-center gap-3 transition-opacity hover:opacity-80"
+        >
+          <div className="relative h-8 w-8 overflow-hidden rounded-full border border-white/20">
             <Image
               src="/Assets/Pic3.JPG"
               alt="Profile Picture"
@@ -137,22 +189,22 @@ const Nav = () => {
               priority
             />
           </div>
-          <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
-            <span className="text-white font-bold text-xs">CK</span>
+          <div className="bg-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <span className="text-xs font-bold text-white">CK</span>
           </div>
-        </div>
+        </Link>
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <button
             onClick={toggleMobileMenu}
-            className="p-2 rounded-md hover:bg-accent transition-colors duration-200"
+            className="hover:bg-accent rounded-md p-2 transition-colors duration-200"
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? (
-              <FaTimes className="w-5 h-5 text-foreground" />
+              <FaTimes className="text-foreground h-5 w-5" />
             ) : (
-              <FaBars className="w-5 h-5 text-foreground" />
+              <FaBars className="text-foreground h-5 w-5" />
             )}
           </button>
         </div>
@@ -160,18 +212,18 @@ const Nav = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div 
-          className="md:hidden fixed inset-0 bg-black/80 backdrop-blur-md"
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-md md:hidden"
           onClick={closeMobileMenu}
         >
-          <div 
-            className="flex flex-col h-full bg-background"
+          <div
+            className="bg-background flex h-full flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+            <div className="border-border flex items-center justify-between border-b px-4 py-3">
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/20">
+                <div className="relative h-10 w-10 overflow-hidden rounded-full border border-white/20">
                   <Image
                     src="/Assets/Pic3.JPG"
                     alt="Profile Picture"
@@ -182,41 +234,51 @@ const Nav = () => {
                   />
                 </div>
                 <div>
-                  <p className="font-medium text-lg">Consolation Lotachi Kem</p>
-                  <p className="text-sm text-muted-foreground">FrontEnd Engineer</p>
+                  <p className="text-lg font-medium">Consolation Lotachi Kem</p>
+                  <p className="text-muted-foreground text-sm">
+                    FrontEnd Engineer
+                  </p>
                 </div>
               </div>
               <button
                 onClick={closeMobileMenu}
-                className="p-2 rounded-md hover:bg-accent transition-colors duration-200"
+                className="hover:bg-accent rounded-md p-2 transition-colors duration-200"
                 aria-label="Close mobile menu"
               >
-                <FaTimes className="w-5 h-5 text-foreground" />
+                <FaTimes className="text-foreground h-5 w-5" />
               </button>
             </div>
 
             {/* Mobile Menu Links */}
-            <div className="flex-1 flex flex-col justify-center px-4 space-y-4">
-              {navLinks.map((link, index) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={closeMobileMenu}
-                  className="text-2xl font-medium text-foreground hover:text-primary transition-all duration-200 py-4 px-6 rounded-xl bg-card hover:bg-accent border border-border hover:border-primary/30 hover:shadow-lg shadow-md"
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
-                >
-                  {link.label}
-                </a>
-              ))}
-              
+            <div className="flex flex-1 flex-col justify-center space-y-4 px-4">
+              {navLinks.map((link, index) => {
+                // If it's a hash link and we're not on home, prepend "/"
+                const href =
+                  link.href.startsWith("#") && pathname !== "/"
+                    ? `/${link.href}`
+                    : link.href;
+
+                return (
+                  <a
+                    key={link.href}
+                    href={href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-foreground hover:text-primary bg-card hover:bg-accent border-border hover:border-primary/30 rounded-xl border px-6 py-4 text-2xl font-medium shadow-md transition-all duration-200 hover:shadow-lg"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
+
               {/* Social Links */}
               <div className="flex justify-center gap-6 pt-8">
                 <a
                   href="https://github.com/KEM-CONSOLATION"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-card hover:bg-accent border border-border hover:border-primary/30 transition-all duration-200 shadow-md hover:shadow-lg"
+                  className="bg-card hover:bg-accent border-border hover:border-primary/30 rounded-full border p-3 shadow-md transition-all duration-200 hover:shadow-lg"
                   aria-label="GitHub Profile"
                 >
                   <Image
@@ -224,14 +286,14 @@ const Nav = () => {
                     alt="GitHub Icon"
                     width={24}
                     height={24}
-                    className="filter brightness-0 invert"
+                    className="brightness-0 invert filter"
                   />
                 </a>
                 <a
                   href="https://ng.linkedin.com/in/kem-consolation"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-card hover:bg-accent border border-border hover:border-primary/30 transition-all duration-200 shadow-md hover:shadow-lg"
+                  className="bg-card hover:bg-accent border-border hover:border-primary/30 rounded-full border p-3 shadow-md transition-all duration-200 hover:shadow-lg"
                   aria-label="LinkedIn Profile"
                 >
                   <Image
@@ -239,7 +301,7 @@ const Nav = () => {
                     alt="LinkedIn Icon"
                     width={24}
                     height={24}
-                    className="filter brightness-0 invert"
+                    className="brightness-0 invert filter"
                   />
                 </a>
               </div>

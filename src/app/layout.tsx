@@ -101,12 +101,8 @@ export const metadata: Metadata = {
     "msapplication-config": "/browserconfig.xml",
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    shortcut: "/favicon.ico",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon.svg",
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
@@ -114,7 +110,7 @@ export const metadata: Metadata = {
       {
         rel: "mask-icon",
         url: "/safari-pinned-tab.svg",
-        color: "#000000",
+        color: "#3b82f6",
       },
     ],
   },
@@ -133,7 +129,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
-        
+
         {/* Structured Data for Portfolio */}
         <script
           type="application/ld+json"
@@ -143,35 +139,36 @@ export default function RootLayout({
               "@type": "Person",
               name: "Consolation Lotachi Kem",
               jobTitle: "FrontEnd Engineer",
-              description: "FrontEnd Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
+              description:
+                "FrontEnd Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
               url: "https://techieconso.vercel.app",
               sameAs: [
                 "https://github.com/techieconso",
                 "https://linkedin.com/in/techieconso",
-                "https://twitter.com/techieconso"
+                "https://twitter.com/techieconso",
               ],
               knowsAbout: [
                 "React",
-                "Next.js", 
+                "Next.js",
                 "TypeScript",
                 "JavaScript",
                 "CSS",
                 "HTML",
                 "Web Development",
-                "Frontend Engineering"
+                "Frontend Engineering",
               ],
               worksFor: {
                 "@type": "Organization",
-                name: "Freelance"
+                name: "Freelance",
               },
               address: {
                 "@type": "PostalAddress",
-                addressCountry: "Nigeria"
-              }
-            })
+                addressCountry: "Nigeria",
+              },
+            }),
           }}
         />
-        
+
         {/* Structured Data for Website */}
         <script
           type="application/ld+json"
@@ -180,18 +177,20 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Consolation Lotachi Kem Portfolio",
-              description: "Portfolio website showcasing web development projects and skills",
+              description:
+                "Portfolio website showcasing web development projects and skills",
               url: "https://techieconso.vercel.app",
               author: {
                 "@type": "Person",
-                name: "Consolation Lotachi Kem"
+                name: "Consolation Lotachi Kem",
               },
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://techieconso.vercel.app/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            })
+                target:
+                  "https://techieconso.vercel.app/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
           }}
         />
       </head>
@@ -199,9 +198,7 @@ export default function RootLayout({
         className={`${arimaSans.variable} ${geistMono.variable} antialiased`}
       >
         <AOSInit />
-        <ClientThemeProvider>
-          {children}
-        </ClientThemeProvider>
+        <ClientThemeProvider>{children}</ClientThemeProvider>
       </body>
     </html>
   );

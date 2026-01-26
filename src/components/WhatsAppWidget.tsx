@@ -21,21 +21,21 @@ const WhatsAppWidget = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-end gap-3">
+    <div className="fixed right-6 bottom-6 z-50 flex items-end gap-3">
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         className={`transform transition-all duration-300 ease-in-out ${
           isHovered
-            ? "translate-x-0 opacity-100 scale-100"
-            : "translate-x-4 opacity-0 scale-95 pointer-events-none"
+            ? "translate-x-0 scale-100 opacity-100"
+            : "pointer-events-none translate-x-4 scale-95 opacity-0"
         }`}
         aria-label="Contact via WhatsApp"
       >
-        <div className="bg-white dark:bg-card rounded-2xl shadow-2xl px-4 py-3 border border-border/50 flex items-center gap-3 min-w-[200px]">
+        <div className="dark:bg-card border-border/50 flex min-w-[200px] items-center gap-3 rounded-2xl border bg-white px-4 py-3 shadow-2xl">
           <div className="flex-shrink-0">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600">
               <svg
                 width="20"
                 height="20"
@@ -51,10 +51,10 @@ const WhatsAppWidget = () => {
             </div>
           </div>
           <div className="flex-1">
-            <p className="text-sm font-semibold text-gray-900 dark:text-foreground">
+            <p className="dark:text-foreground text-sm font-semibold text-gray-900">
               Chat with us
             </p>
-            <p className="text-xs text-gray-600 dark:text-muted-foreground">
+            <p className="dark:text-muted-foreground text-xs text-gray-600">
               We typically reply in minutes
             </p>
           </div>
@@ -62,14 +62,16 @@ const WhatsAppWidget = () => {
       </a>
 
       <button
-        onClick={() => window.open(whatsappUrl, "_blank", "noopener,noreferrer")}
+        onClick={() =>
+          window.open(whatsappUrl, "_blank", "noopener,noreferrer")
+        }
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative group w-14 h-14 cursor-pointer rounded-full bg-gradient-to-br from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center animate-pulse hover:animate-none"
+        className="group relative flex h-14 w-14 transform animate-pulse cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-lg transition-all duration-300 hover:scale-110 hover:animate-none hover:from-green-500 hover:to-green-700 hover:shadow-xl"
         aria-label="Contact via WhatsApp"
       >
-        <span className="absolute inset-0 rounded-full bg-green-400 opacity-75 animate-ping group-hover:animate-none"></span>
-        
+        <span className="absolute inset-0 animate-ping rounded-full bg-green-400 opacity-75 group-hover:animate-none"></span>
+
         <svg
           width="28"
           height="28"
@@ -89,4 +91,3 @@ const WhatsAppWidget = () => {
 };
 
 export default WhatsAppWidget;
-

@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaChevronDown, FaChevronUp, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
+import {
+  FaChevronDown,
+  FaChevronUp,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+} from "react-icons/fa";
 
 interface Experience {
   role: string;
@@ -108,12 +113,12 @@ const Experience = () => {
 
   return (
     <section className="py-20" id="experience">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="mb-16 text-center" data-aos="fade-up">
+          <h2 className="text-foreground mb-4 text-4xl font-bold lg:text-5xl">
             Professional Experience
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
             Navigating my professional journey, one role at a time
           </p>
         </div>
@@ -122,33 +127,35 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-card backdrop-blur-sm border border-border rounded-xl overflow-hidden hover:bg-accent transition-all duration-300"
+              className="bg-card border-border hover:bg-accent overflow-hidden rounded-xl border backdrop-blur-sm transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 150}
             >
               <button
                 onClick={() => toggleIndex(index)}
-                className="w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+                className="w-full p-6 text-left focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-inset"
                 aria-expanded={openIndex === index}
                 aria-controls={`experience-${index}`}
               >
-                <div className="flex justify-between items-start">
+                <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <h3 className="text-xl lg:text-2xl font-bold text-card-foreground mb-2">
+                    <h3 className="text-card-foreground mb-2 text-xl font-bold lg:text-2xl">
                       {exp.role}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-3">
-                      <span className="font-semibold text-primary">{exp.company}</span>
+                    <div className="text-muted-foreground mb-3 flex flex-wrap items-center gap-4">
+                      <span className="text-primary font-semibold">
+                        {exp.company}
+                      </span>
                       <div className="flex items-center gap-1 text-sm">
-                        <FaMapMarkerAlt className="w-3 h-3" />
+                        <FaMapMarkerAlt className="h-3 w-3" />
                         <span>{exp.location}</span>
                       </div>
                       <div className="flex items-center gap-1 text-sm">
-                        <FaCalendarAlt className="w-3 h-3" />
+                        <FaCalendarAlt className="h-3 w-3" />
                         <span>{exp.period}</span>
                       </div>
                     </div>
-                    <span className="inline-block px-3 py-1 bg-primary/20 text-primary text-sm rounded-full border border-primary/30">
+                    <span className="bg-primary/20 text-primary border-primary/30 inline-block rounded-full border px-3 py-1 text-sm">
                       {exp.type}
                     </span>
                   </div>
@@ -167,15 +174,20 @@ const Experience = () => {
                 className={`transition-all duration-300 ease-in-out ${
                   openIndex === index
                     ? "max-h-[500px] opacity-100"
-                    : "max-h-0 opacity-0 overflow-hidden"
+                    : "max-h-0 overflow-hidden opacity-0"
                 }`}
               >
-                <div className="px-6 pb-6 border-t border-border">
+                <div className="border-border border-t px-6 pb-6">
                   <ul className="space-y-3 pt-4">
                     {exp.details.map((detail, i) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-sm lg:text-base leading-relaxed">{detail}</span>
+                      <li
+                        key={i}
+                        className="text-muted-foreground flex items-start gap-3"
+                      >
+                        <div className="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>
+                        <span className="text-sm leading-relaxed lg:text-base">
+                          {detail}
+                        </span>
                       </li>
                     ))}
                   </ul>

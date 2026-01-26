@@ -1,16 +1,14 @@
 "use client";
-import Experience from "@/components/Experience";
-import Footer from "@/components/Footer";
-import HeroSection from "@/components/HeroSection";
+
 import Nav from "@/components/Nav";
-import ProjectsCarousel from "@/components/ProjectsCarousel";
-import Skills from "@/components/Skills";
+import Footer from "@/components/Footer";
+import Projects from "@/components/Projects";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import CustomCursor from "@/components/CustomCursor";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function PortfolioPage() {
   const [showButton, setShowButton] = useState(false);
 
   const scrollToTop = () => {
@@ -31,11 +29,8 @@ export default function Home() {
       <CustomCursor />
       <Nav />
 
-      <main>
-        <HeroSection />
-        <Experience />
-        <Skills />
-        <ProjectsCarousel />
+      <main className="pt-20">
+        <Projects />
       </main>
 
       <Footer />

@@ -80,7 +80,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 html {
@@ -136,7 +138,6 @@ html {
 }
 
 .embla__slide {
-  flex: 0 0 100%;
   min-width: 0;
 }
 
@@ -145,4 +146,3 @@ body.custom-cursor-active,
 body.custom-cursor-active * {
   cursor: none !important;
 }
-

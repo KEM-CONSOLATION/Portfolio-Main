@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from "next/head";
 
 interface SEOProps {
   title?: string;
@@ -6,7 +6,7 @@ interface SEOProps {
   keywords?: string[];
   image?: string;
   url?: string;
-  type?: 'website' | 'article' | 'profile';
+  type?: "website" | "article" | "profile";
   author?: string;
   publishedTime?: string;
   modifiedTime?: string;
@@ -29,7 +29,7 @@ export default function SEO({
 }: SEOProps) {
   const siteTitle = "Consolation Lotachi Kem Portfolio";
   const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
-  
+
   const defaultKeywords = [
     "Consolation Lotachi Kem",
     "FrontEnd Engineer",
@@ -47,7 +47,7 @@ export default function SEO({
     "Software Engineer",
     "Web Developer",
   ];
-  
+
   const allKeywords = [...new Set([...defaultKeywords, ...keywords])];
 
   return (
@@ -55,9 +55,9 @@ export default function SEO({
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={allKeywords.join(', ')} />
+      <meta name="keywords" content={allKeywords.join(", ")} />
       <meta name="author" content={author} />
-      
+
       {/* Open Graph Meta Tags */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
@@ -66,7 +66,7 @@ export default function SEO({
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content={siteTitle} />
       <meta property="og:locale" content="en_US" />
-      
+
       {/* Twitter Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
@@ -74,22 +74,31 @@ export default function SEO({
       <meta name="twitter:image" content={image} />
       <meta name="twitter:creator" content="@techieconso" />
       <meta name="twitter:site" content="@techieconso" />
-      
+
       {/* Additional Meta Tags */}
-      {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-      {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+      {publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )}
+      {modifiedTime && (
+        <meta property="article:modified_time" content={modifiedTime} />
+      )}
       {section && <meta property="article:section" content={section} />}
-      {tags.length > 0 && tags.map((tag, index) => (
-        <meta key={index} property="article:tag" content={tag} />
-      ))}
-      
+      {tags.length > 0 &&
+        tags.map((tag, index) => (
+          <meta key={index} property="article:tag" content={tag} />
+        ))}
+
       {/* Canonical URL */}
       <link rel="canonical" href={url} />
-      
+
       {/* Preconnect to external domains for performance */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="anonymous"
+      />
+
       {/* DNS Prefetch for external resources */}
       <link rel="dns-prefetch" href="//fonts.googleapis.com" />
       <link rel="dns-prefetch" href="//fonts.gstatic.com" />
