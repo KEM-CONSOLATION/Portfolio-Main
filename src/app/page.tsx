@@ -6,7 +6,6 @@ import Nav from "@/components/Nav";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
 import Skills from "@/components/Skills";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
-import CustomCursor from "@/components/CustomCursor";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -28,7 +27,6 @@ export default function Home() {
 
   return (
     <>
-      <CustomCursor />
       <Nav />
 
       <main>

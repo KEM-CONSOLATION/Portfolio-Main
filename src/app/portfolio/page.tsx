@@ -4,7 +4,6 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
-import CustomCursor from "@/components/CustomCursor";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -26,7 +25,6 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <CustomCursor />
       <Nav />
 
       <main className="pt-20">

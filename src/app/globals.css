@@ -140,9 +140,3 @@ html {
 .embla__slide {
   min-width: 0;
 }
-
-/* Custom Cursor Styles */
-body.custom-cursor-active,
-body.custom-cursor-active * {
-  cursor: none !important;
-}
