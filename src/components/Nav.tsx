@@ -89,7 +89,7 @@ const Nav = () => {
               />
             </div>
             <div className="space-y-1">
-              <p className="text-lg font-medium">FrontEnd Engineer</p>
+              <p className="text-lg font-medium">Software Engineer</p>
               <p className="text-sm text-gray-300">Consolation Lotachi Kem</p>
             </div>
           </div>
@@ -131,7 +131,7 @@ const Nav = () => {
             />
           </div>
           <div className="space-y-1">
-            <p className="text-lg font-medium">FrontEnd Engineer</p>
+            <p className="text-lg font-medium">Software Engineer</p>
             <p className="text-sm text-gray-300">Consolation Lotachi Kem</p>
           </div>
         </Link>
@@ -236,7 +236,7 @@ const Nav = () => {
                 <div>
                   <p className="text-lg font-medium">Consolation Lotachi Kem</p>
                   <p className="text-muted-foreground text-sm">
-                    FrontEnd Engineer
+                    Software Engineer
                   </p>
                 </div>
               </div>

@@ -19,7 +19,7 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    role: "Frontend Engineer",
+    role: "Software Engineer",
     company: "Passion Tree Care Services Ltd",
     location: "Chelmsford, England, United Kingdom",
     period: "January 2025 – Present",
@@ -37,13 +37,13 @@ const experiences: Experience[] = [
     ],
   },
   {
-    role: "Lead Frontend Engineer",
+    role: "Software Engineer",
     company: "Beyond Tech",
     location: "Calabar, Nigeria",
     period: "January 2025 – Present",
     type: "Remote, Contract",
     details: [
-      "Leading the frontend development of Work&Shop, a platform connecting skilled professionals, vendors, and customers.",
+      "Leading the software development of Work&Shop, a platform connecting skilled professionals, vendors, and customers.",
       "Architecting and implementing scalable React and Next.js solutions to enhance performance and maintainability.",
       "Collaborating with product managers, designers, and backend engineers to deliver seamless user experiences.",
       "Conducting code reviews, mentoring junior developers, and enforcing best practices in UI/UX and accessibility.",
@@ -51,7 +51,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    role: "FrontEnd Engineer",
+    role: "Software Engineer",
     company: "TrooHQ Technologies",
     location: "Remote",
     period: "January 2024 – May 2025",
@@ -64,7 +64,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    role: "FrontEnd Engineer",
+    role: "Software Engineer",
     company: "ScriptDesk Technologies",
     location: "Remote",
     period: "April 2024 – February 2025",
@@ -77,7 +77,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    role: "FrontEnd Engineer",
+    role: "Software Engineer",
     company: "Alpha-Version",
     location: "Remote",
     period: "December 2023 – December 2024",
@@ -90,7 +90,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    role: "FrontEnd Engineer",
+    role: "Software Engineer",
     company: "CityXplorer",
     location: "Tennessee, USA",
     period: "March 2023 – December 2023",

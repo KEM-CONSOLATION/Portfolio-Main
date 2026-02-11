@@ -29,7 +29,7 @@ const HeroSection = () => {
               <div className="relative h-80 w-80 overflow-hidden rounded-full border-4 border-white/20 shadow-2xl lg:h-96 lg:w-96">
                 <Image
                   src="/Assets/Pic1.JPG"
-                  alt="Consolation Lotachi Kem - FrontEnd Engineer"
+                  alt="Consolation Lotachi Kem - Software Engineer"
                   width={400}
                   height={400}
                   className="h-full w-full object-cover"
@@ -56,7 +56,7 @@ const HeroSection = () => {
                 </span>
               </h1>
               <h2 className="text-muted-foreground text-2xl font-semibold lg:text-3xl">
-                FrontEnd Engineer
+                Software Engineer
               </h2>
             </div>
 

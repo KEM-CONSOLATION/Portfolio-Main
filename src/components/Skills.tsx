@@ -78,7 +78,7 @@ const Skills = () => {
           </h2>
           <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
             Explore my diverse skill set, a testament to my commitment to
-            delivering excellence in frontend engineering.
+            delivering excellence in Software engineering.
           </p>
         </div>
 

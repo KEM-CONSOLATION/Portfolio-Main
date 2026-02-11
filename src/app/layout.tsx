@@ -16,18 +16,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Consolation Lotachi Kem | FrontEnd Engineer Portfolio",
+  title: "Consolation Lotachi Kem | Software Engineer Portfolio",
   description:
-    "Portfolio of Consolation Lotachi Kem, a skilled FrontEnd Engineer specializing in React, Next.js, TypeScript, and modern web technologies. View my projects, skills, and experience in web development.",
+    "Portfolio of Consolation Lotachi Kem, a skilled Software Engineer specializing in React, Next.js, TypeScript, and modern web technologies. View my projects, skills, and experience in web development.",
   keywords: [
     "Consolation Lotachi Kem",
-    "FrontEnd Engineer",
+    "Software Engineer",
     "React Developer",
     "Next.js Portfolio",
     "TypeScript Developer",
     "Web Development",
     "UI/UX Implementation",
-    "Frontend Engineer",
+    "Software Engineer",
     "JavaScript Developer",
     "CSS Developer",
     "HTML Developer",
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
   category: "technology",
   classification: "Portfolio",
   openGraph: {
-    title: "Consolation Lotachi Kem | FrontEnd Engineer Portfolio",
+    title: "Consolation Lotachi Kem | Software Engineer Portfolio",
     description:
-      "Explore my projects, skills, and experience as a FrontEnd Engineer specializing in modern, responsive, and high-performance web applications.",
+      "Explore my projects, skills, and experience as a Software Engineer specializing in modern, responsive, and high-performance web applications.",
     url: "https://techieconso.vercel.app",
     siteName: "Consolation Lotachi Kem Portfolio",
     images: [
@@ -83,9 +83,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consolation Lotachi Kem | FrontEnd Engineer Portfolio",
+    title: "Consolation Lotachi Kem | Software Engineer Portfolio",
     description:
-      "Explore my projects, skills, and experience as a FrontEnd Engineer specializing in modern, responsive, and high-performance web applications.",
+      "Explore my projects, skills, and experience as a Software Engineer specializing in modern, responsive, and high-performance web applications.",
     images: ["/Assets/Pic1.JPG"],
     creator: "@techieconso",
     site: "@techieconso",
@@ -138,9 +138,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Consolation Lotachi Kem",
-              jobTitle: "FrontEnd Engineer",
+              jobTitle: "Software Engineer",
               description:
-                "FrontEnd Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
+                "Software Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
               url: "https://techieconso.vercel.app",
               sameAs: [
                 "https://github.com/techieconso",
@@ -155,7 +155,7 @@ export default function RootLayout({
                 "CSS",
                 "HTML",
                 "Web Development",
-                "Frontend Engineering",
+                "Software Engineering",
               ],
               worksFor: {
                 "@type": "Organization",
