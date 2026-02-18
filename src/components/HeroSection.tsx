@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import Modal from "./Modal";
 
 const HeroSection = () => {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   const socialLinks = [
     { href: "https://ng.linkedin.com/in/kem-consolation", label: "LinkedIn" },
     { href: "https://www.youtube.com/@TechieConso", label: "YouTube" },
@@ -70,16 +73,14 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
-              <a
-                href="https://drive.google.com/file/d/136GAlJZjlG9M-65oZ0lYXZns34H6S-1b/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex transform items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl"
+              <button
+                onClick={() => setIsResumeOpen(true)}
+                className="group inline-flex transform cursor-pointer items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl"
                 data-aos="zoom-in"
               >
                 <span>View My Resume</span>
                 <FaExternalLinkAlt className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
-              </a>
+              </button>
 
               <a
                 href="#projects"
@@ -114,6 +115,17 @@ const HeroSection = () => {
           ))}
         </div>
       </div>
+
+      <Modal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)}>
+        <iframe
+          src="https://drive.google.com/file/d/136GAlJZjlG9M-65oZ0lYXZns34H6S-1b/preview"
+          width="100%"
+          height="100%"
+          style={{ border: "none" }}
+          title="Resume"
+          className="h-full w-full"
+        />
+      </Modal>
     </section>
   );
 };
