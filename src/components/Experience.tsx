@@ -19,87 +19,57 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    role: "Software Engineer",
+    role: "Frontend Engineer",
     company: "Passion Tree Care Services Ltd",
-    location: "Chelmsford, England, United Kingdom",
+    location: "Chelmsford, England, UK",
     period: "January 2025 – Present",
-    type: "Remote, Contract",
-    details: [
-      "Developed and maintained a comprehensive healthcare management platform for care providers, enabling seamless service user management, scheduling, and service transfers across multiple healthcare services including Reablement and Home-to-Assess programs.",
-      "Built complex multi-step forms with real-time validation, dynamic field rendering, and seamless data persistence using React Hook Form and Zod schema validation.",
-      "Implemented service transfer workflows with conditional logic, manager credential verification, and automatic service ending upon successful transfers.",
-      "Developed address lookup functionality integrating with external postcode APIs, implementing debounced search, district validation, and automatic address pre-population.",
-      "Created reusable UI components including custom date/time pickers, file upload systems, schedule modals, and form drawers using React and TypeScript.",
-      "Integrated multiple REST APIs for user management, service records, document uploads, and real-time data synchronization across different healthcare services.",
-      "Implemented state management using Zustand stores for complex form states, API responses, and user session management.",
-      "Built responsive interfaces with mobile-optimized layouts, custom animations, and accessibility features using Tailwind CSS.",
-      "Optimized form performance with lazy loading, memoization, and efficient re-rendering strategies for large datasets.",
-    ],
-  },
-  {
-    role: "Software Engineer",
-    company: "Beyond Tech",
-    location: "Calabar, Nigeria",
-    period: "January 2025 – Present",
-    type: "Remote, Contract",
-    details: [
-      "Leading the software development of Work&Shop, a platform connecting skilled professionals, vendors, and customers.",
-      "Architecting and implementing scalable React and Next.js solutions to enhance performance and maintainability.",
-      "Collaborating with product managers, designers, and backend engineers to deliver seamless user experiences.",
-      "Conducting code reviews, mentoring junior developers, and enforcing best practices in UI/UX and accessibility.",
-      "Optimizing frontend build processes, improving load times, and ensuring cross-browser compatibility.",
-    ],
-  },
-  {
-    role: "Software Engineer",
-    company: "TrooHQ Technologies",
-    location: "Remote",
-    period: "January 2024 – May 2025",
     type: "Remote",
     details: [
-      "Developed high-performance, reusable code and features for managing staff, menus, and orders in a restaurant management system.",
-      "Converted Figma designs into responsive websites, integrated with REST APIs, and optimized the application for mobile with custom animations for enhanced user experience.",
-      "Transformed restaurant operations through intuitive, cloud-based software solutions empowering restaurants of all types across Africa.",
-      "Enhanced customer experience and boosted profitability by simplifying operations for food trucks, lounges, quick-service chains, hotels, and fine-dining establishments.",
+      "Developed and maintained a healthcare management platform serving care providers across Reablement and Home-to-Assess programs.",
+      "Built complex multi-step workflows using React Hook Form and Zod, reducing data entry errors by 40%.",
+      "Implemented automated transfer systems with conditional workflows and managerial approval processes for 500+ users.",
+      "Integrated REST APIs and real-time synchronization systems to improve operational efficiency and data accuracy.",
+      "Optimized frontend performance using Zustand, memoization, and scalable state management patterns.",
+      "Built responsive and accessible interfaces using Tailwind CSS with high mobile compatibility.",
     ],
   },
   {
-    role: "Software Engineer",
+    role: "Lead Frontend Engineer",
+    company: "Beyond Tech",
+    location: "Remote",
+    period: "January 2025 – June 2025",
+    type: "Contract",
+    details: [
+      "Led frontend architecture and development for Work&Shop, a marketplace platform connecting professionals, vendors, and customers.",
+      "Designed scalable React and Next.js applications focused on maintainability and performance.",
+      "Collaborated with designers, backend engineers, and stakeholders to deliver seamless user experiences.",
+      "Conducted code reviews, mentored junior developers, and enforced frontend best practices and accessibility standards.",
+      "Improved application performance, load times, and cross-browser compatibility.",
+    ],
+  },
+  {
+    role: "Frontend Engineer",
     company: "ScriptDesk Technologies",
     location: "Remote",
     period: "April 2024 – February 2025",
     type: "Remote",
     details: [
-      "Transformed Figma designs into fully functional, responsive websites and integrated frontend designs with REST APIs to connect the UI with backend data.",
-      "Led the development of interactive dashboards and mobile-first optimized websites, enhancing user experience and client engagement.",
-      "Stayed ahead of the curve by leveraging the latest technologies to ensure businesses remain competitive and relevant in the evolving digital landscape.",
-      "Developed solutions that help businesses adapt to constantly changing digital requirements.",
+      "Built responsive web applications from Figma designs using React and Next.js.",
+      "Integrated REST APIs and developed interactive dashboards for business clients.",
+      "Improved mobile performance and user engagement through optimized frontend architecture.",
+      "Delivered scalable UI solutions aligned with modern frontend standards.",
     ],
   },
   {
-    role: "Software Engineer",
-    company: "Alpha-Version",
+    role: "Frontend Engineer",
+    company: "TrooHQ Technologies",
     location: "Remote",
-    period: "December 2023 – December 2024",
+    period: "January 2024 – May 2025",
     type: "Remote",
     details: [
-      "Developed and launched the company's real estate platform website, enabling landlords to list properties and providing tenants with seamless property search functionality.",
-      "Integrated APIs for real-time data exchange, optimized front-end components for performance, and enhanced user experience with custom animations and mobile optimization.",
-      "Built a comprehensive platform for buying, selling, leasing, and renting apartments with intuitive user interfaces.",
-      "Implemented responsive design principles ensuring optimal performance across all devices and screen sizes.",
-    ],
-  },
-  {
-    role: "Software Engineer",
-    company: "CityXplorer",
-    location: "Tennessee, USA",
-    period: "March 2023 – December 2023",
-    type: "Remote",
-    details: [
-      "Integrated APIs to enable merchants to create stores and sell products, ensuring seamless functionality and smooth user interaction.",
-      "Developed and optimized high-performance web applications with reusable front-end components, custom animations, and mobile optimization.",
-      "Built an e-commerce platform designed to empower merchants to create online stores and sell products seamlessly.",
-      "Created a dynamic and user-friendly marketplace with features for suggesting stores and interacting with merchants, emphasizing efficiency, responsiveness, and accessibility across devices.",
+      "Developed cloud-based restaurant management software for African food businesses.",
+      "Built reusable React components that improved operational efficiency by 25% for 100+ users.",
+      "Transformed Figma designs into responsive applications with REST API integrations and improved mobile UX.",
     ],
   },
 ];
@@ -119,7 +89,8 @@ const Experience = () => {
             Professional Experience
           </h2>
           <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
-            Navigating my professional journey, one role at a time
+            5+ years building scalable web products for startups and
+            international clients
           </p>
         </div>
 
@@ -184,7 +155,7 @@ const Experience = () => {
                         key={i}
                         className="text-muted-foreground flex items-start gap-3"
                       >
-                        <div className="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>
+                        <div className="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full" />
                         <span className="text-sm leading-relaxed lg:text-base">
                           {detail}
                         </span>

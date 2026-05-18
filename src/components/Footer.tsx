@@ -52,7 +52,7 @@ const Footer = () => {
                   Consolation Kem
                 </h3>
                 <p className="text-muted-foreground text-sm">
-                  Software Engineer
+                  Senior Frontend Engineer
                 </p>
               </div>
             </div>

@@ -32,7 +32,7 @@ const HeroSection = () => {
               <div className="relative h-80 w-80 overflow-hidden rounded-full border-4 border-white/20 shadow-2xl lg:h-96 lg:w-96">
                 <Image
                   src="/Assets/Pic1.JPG"
-                  alt="Consolation Lotachi Kem - Software Engineer"
+                  alt="Consolation Lotachi Kem - Senior Frontend Engineer"
                   width={400}
                   height={400}
                   className="h-full w-full object-cover"
@@ -59,17 +59,19 @@ const HeroSection = () => {
                 </span>
               </h1>
               <h2 className="text-muted-foreground text-2xl font-semibold lg:text-3xl">
-                Software Engineer
+                Senior Frontend Engineer
               </h2>
             </div>
 
             <p className="text-muted-foreground mx-auto max-w-2xl text-base leading-relaxed lg:mx-0 lg:text-lg">
-              With over 4 years of industry experience specializing in building
-              functional web applications by crafting efficient, maintainable,
-              and testable client code. Collaborative and solution-driven,
-              proficient in JavaScript, React.js, Next.js, and TypeScript with
-              hands-on experience in API integration. I excel in translating
-              design mockups into user-centric applications.
+              Senior Frontend Engineer with 5+ years of experience building
+              scalable, high-performance web applications using React.js,
+              Next.js, TypeScript, and modern frontend technologies. Proven
+              track record architecting SaaS platforms, enterprise dashboards,
+              CMS solutions, and customer-facing products—with strong focus on
+              performance, accessibility, and maintainability. Experienced
+              leading frontend initiatives, mentoring developers, and delivering
+              production-ready solutions for startups and international clients.
             </p>
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">

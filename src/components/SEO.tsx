@@ -15,8 +15,8 @@ interface SEOProps {
 }
 
 export default function SEO({
-  title = "Consolation Lotachi Kem | Software Engineer Portfolio",
-  description = "Portfolio of Consolation Lotachi Kem, a skilled Software Engineer specializing in React, Next.js, TypeScript, and modern web technologies.",
+  title = "Consolation Lotachi Kem | Senior Frontend Engineer Portfolio",
+  description = "Portfolio of Consolation Lotachi Kem, a Senior Frontend Engineer with 5+ years of experience building scalable web applications with React, Next.js, and TypeScript.",
   keywords = [],
   image = "/Assets/Pic3.JPG",
   url = "https://techieconso.vercel.app",
@@ -32,7 +32,7 @@ export default function SEO({
 
   const defaultKeywords = [
     "Consolation Lotachi Kem",
-    "Software Engineer",
+    "Senior Frontend Engineer",
     "React Developer",
     "Next.js Portfolio",
     "TypeScript Developer",
@@ -44,7 +44,7 @@ export default function SEO({
     "Responsive Web Design",
     "Modern Web Applications",
     "Portfolio Website",
-    "Software Engineer",
+    "Senior Frontend Engineer",
     "Web Developer",
   ];
 
