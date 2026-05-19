@@ -66,7 +66,7 @@ const ProjectsCarousel = () => {
           <div className="embla__container flex gap-4">
             {featuredProjects.map((project, index) => (
               <div
-                key={index}
+                key={project.name}
                 className="embla__slide min-w-0 flex-[0_0_85%] sm:flex-[0_0_48%] md:flex-[0_0_calc(33.333%-0.67rem)] lg:flex-[0_0_calc(33.333%-0.67rem)]"
               >
                 <div className="bg-card border-border h-full space-y-3 rounded-lg border p-4 backdrop-blur-sm transition-all duration-300 hover:shadow-lg">
@@ -75,6 +75,7 @@ const ProjectsCarousel = () => {
                     <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/20 to-emerald-500/20 opacity-50 blur transition duration-500 group-hover:opacity-75"></div>
                     <div className="border-border relative overflow-hidden rounded-lg border shadow-md">
                       <Image
+                        key={project.image}
                         src={project.image}
                         alt={`${project.name} Project Screenshot`}
                         width={300}

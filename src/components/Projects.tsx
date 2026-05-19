@@ -59,7 +59,7 @@ const Projects = () => {
         <div className="hidden space-y-24 lg:block">
           {projects.map((project, index) => (
             <div
-              key={index}
+              key={project.name}
               className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-16 ${
                 project.reverse ? "lg:grid-flow-col-dense" : ""
               }`}
@@ -75,6 +75,7 @@ const Projects = () => {
                   <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-blue-500/20 to-emerald-500/20 opacity-75 blur transition duration-1000 group-hover:opacity-100"></div>
                   <div className="border-border relative overflow-hidden rounded-2xl border shadow-2xl">
                     <Image
+                      key={project.image}
                       src={project.image}
                       alt={`${project.name} Project Screenshot`}
                       width={600}
@@ -175,7 +176,7 @@ const Projects = () => {
             <div className="embla__container flex">
               {projects.map((project, index) => (
                 <div
-                  key={index}
+                  key={project.name}
                   className="embla__slide min-w-0 flex-[0_0_100%] px-4"
                 >
                   <div className="bg-card border-border space-y-6 rounded-xl border p-6 backdrop-blur-sm">
@@ -184,6 +185,7 @@ const Projects = () => {
                       <div className="absolute -inset-2 rounded-xl bg-gradient-to-r from-blue-500/20 to-emerald-500/20 opacity-75 blur transition duration-1000 group-hover:opacity-100"></div>
                       <div className="border-border relative overflow-hidden rounded-xl border shadow-xl">
                         <Image
+                          key={project.image}
                           src={project.image}
                           alt={`${project.name} Project Screenshot`}
                           width={400}

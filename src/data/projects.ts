@@ -11,6 +11,64 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: "HOME-CELL (Salvation Ministries)",
+    role: "Senior Frontend Engineer",
+    description:
+      "A production church management platform digitalizing Salvation Ministries Home Fellowship operations across states, areas, zones, and fellowship cells. Built role-based dashboards for State, Area, Zonal, and Cell leaders with real-time KPIs—member counts, new converts, attendance rate, and retention—plus attendance submission, convert pipeline tracking, compliance monitoring, reports, and in-app communications. Features global search, multi-level hierarchy management, scripture widgets, and PWA support for leaders in the field.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Zustand",
+      "React Hook Form",
+      "Zod",
+      "TanStack Table",
+      "Radix UI",
+      "Axios",
+    ],
+    image: "/Assets/smhos-homecell.png",
+    link: "https://www.crshomecell.online",
+    reverse: false,
+  },
+  {
+    name: "CHAAD Energy",
+    role: "Senior Frontend Engineer",
+    description:
+      "Corporate website for CHAAD Energy Limited—an engineering and energy services firm delivering EPC, commissioning, cathodic protection, tank services, and turnkey solutions across oil, gas, and industrial sectors. Built a content-driven marketing platform with dynamic services, projects, careers, and news powered by REST APIs, Cloudinary asset delivery, animated hero sections, client trust showcases, and conversion-focused contact flows.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Zustand",
+      "React Hook Form",
+      "Zod",
+      "TanStack Table",
+      "Axios",
+    ],
+    image: "/Assets/chaad-energy.png",
+    link: "https://www.chaadenergy.com",
+    reverse: true,
+  },
+  {
+    name: "CHAAD Engineering",
+    role: "Senior Frontend Engineer",
+    description:
+      "Enterprise website for CHAAD Engineering & Technical Services Ltd—ISO 9001–certified oil and gas engineering specialists. Delivered a high-performance Next.js experience with cinematic hero carousels, services and project catalogs, careers and news modules, quotation request forms, partner marquee, FAQ, cookie compliance, and SEO-optimized pages showcasing 150+ global infrastructure projects.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Axios",
+      "Cloudinary",
+      "React Hook Form",
+    ],
+    image: "/Assets/chaad-engineering.png",
+    link: "https://www.chaadengineering.com",
+    reverse: false,
+  },
+  {
     name: "BoroFuel",
     role: "Senior Frontend Engineer",
     description:

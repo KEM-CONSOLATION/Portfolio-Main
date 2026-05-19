@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Portfolio | Consolation Lotachi Kem - Senior Frontend Engineer",
   description:
-    "Explore the complete portfolio of Consolation Lotachi Kem, featuring all projects including BoroFuel, ASAP DBA, Blunt Tribe, Nexkro, Aerysyn, MagicGames, and more. View detailed project information, tech stacks, and live demos.",
+    "Explore the complete portfolio of Consolation Lotachi Kem, featuring all projects including CHAAD Energy, CHAAD Engineering, HOME-CELL, BoroFuel, ASAP DBA, Nexkro, Aerysyn, and more. View detailed project information, tech stacks, and live demos.",
   keywords: [
     "Portfolio",
     "Projects",
