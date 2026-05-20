@@ -6,7 +6,6 @@ export interface Project {
   image: string;
   link: string;
   github?: string;
-  reverse: boolean;
 }
 
 export const projects: Project[] = [
@@ -28,7 +27,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/smhos-homecell.png",
     link: "https://www.crshomecell.online",
-    reverse: false,
   },
   {
     name: "CHAAD Energy",
@@ -48,7 +46,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/chaad-energy.png",
     link: "https://www.chaadenergy.com",
-    reverse: true,
   },
   {
     name: "CHAAD Engineering",
@@ -66,7 +63,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/chaad-engineering.png",
     link: "https://www.chaadengineering.com",
-    reverse: false,
   },
   {
     name: "BoroFuel",
@@ -82,7 +78,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/borofuel.png",
     link: "https://borofuel.org",
-    reverse: false,
   },
   {
     name: "ASAP DBA",
@@ -100,7 +95,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/asapdba.png",
     link: "https://asapdbaservices.com",
-    reverse: true,
   },
   {
     name: "Blunt Tribe",
@@ -118,7 +112,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/blunttribe.png",
     link: "https://blunttribe.com",
-    reverse: false,
   },
   {
     name: "Nexkro",
@@ -136,7 +129,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/nexkro.png",
     link: "https://nexkro.com",
-    reverse: true,
   },
   {
     name: "Aerysyn",
@@ -154,7 +146,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/aerysyn.png",
     link: "https://aerysyn.com/",
-    reverse: false,
   },
   {
     name: "MagicGames",
@@ -171,7 +162,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/playmagic.png",
     link: "http://playmagic.ng/",
-    reverse: false,
   },
   {
     name: "Premium & Classy",
@@ -188,7 +178,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/premium-classy-events.png",
     link: "https://premiumandclassy.netlify.app",
-    reverse: true,
   },
   {
     name: "Work & Shop",
@@ -205,7 +194,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/workandshop.png",
     link: "https://workandshopapp.com",
-    reverse: false,
   },
   {
     name: "Umpire Wave",
@@ -222,7 +210,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/umpirewave.png",
     link: "https://umpirewave.com",
-    reverse: true,
   },
   {
     name: "Troo",
@@ -232,7 +219,6 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Redux"],
     image: "/Assets/troohq.png",
     link: "https://troohq.com",
-    reverse: false,
   },
   {
     name: "Growth Group DC Website",
@@ -249,7 +235,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/growth-groups.png",
     link: "https://dc-calabar.netlify.app",
-    reverse: false,
   },
   {
     name: "Ecomarine",
@@ -266,7 +251,6 @@ export const projects: Project[] = [
     ],
     image: "/Assets/ecomarinegroup.png",
     link: "https://site.ecomarinegroup.com",
-    reverse: true,
   },
   {
     name: "Kurenode",
@@ -276,6 +260,5 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Material UI", "Redux"],
     image: "/Assets/kurenode.png",
     link: "https://qproxim.netlify.app",
-    reverse: true,
   },
 ];

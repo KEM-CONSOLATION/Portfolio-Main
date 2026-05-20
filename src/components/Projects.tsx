@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import type { EmblaCarouselType } from "embla-carousel";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { projects } from "@/data/projects";
 
 const Projects = () => {
@@ -28,10 +29,25 @@ const Projects = () => {
 
   const onInit = useCallback((emblaApi: EmblaCarouselType) => {
     setScrollSnaps(emblaApi.scrollSnapList());
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
   }, []);
+
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext();
+  }, [emblaApi]);
 
   const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
     setSelectedIndex(emblaApi.selectedScrollSnap());
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
   }, []);
 
   useEffect(() => {
@@ -61,13 +77,13 @@ const Projects = () => {
             <div
               key={project.name}
               className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-16 ${
-                project.reverse ? "lg:grid-flow-col-dense" : ""
+                index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
               }`}
-              data-aos={project.reverse ? "fade-left" : "fade-right"}
+              data-aos={index % 2 === 1 ? "fade-left" : "fade-right"}
             >
               {/* Project Image */}
               <div
-                className={`${project.reverse ? "lg:col-start-2" : ""}`}
+                className={`${index % 2 === 1 ? "lg:col-start-2 lg:row-start-1" : ""}`}
                 data-aos="zoom-in"
                 data-aos-delay="200"
               >
@@ -90,7 +106,7 @@ const Projects = () => {
 
               {/* Project Content */}
               <div
-                className={`space-y-6 ${project.reverse ? "lg:col-start-1" : ""}`}
+                className={`space-y-6 ${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
@@ -172,102 +188,122 @@ const Projects = () => {
 
         {/* Mobile Carousel Layout */}
         <div className="lg:hidden">
-          <div className="embla" ref={emblaRef}>
-            <div className="embla__container flex">
-              {projects.map((project, index) => (
-                <div
-                  key={project.name}
-                  className="embla__slide min-w-0 flex-[0_0_100%] px-4"
-                >
-                  <div className="bg-card border-border space-y-6 rounded-xl border p-6 backdrop-blur-sm">
-                    {/* Project Image */}
-                    <div className="group relative">
-                      <div className="absolute -inset-2 rounded-xl bg-gradient-to-r from-blue-500/20 to-emerald-500/20 opacity-75 blur transition duration-1000 group-hover:opacity-100"></div>
-                      <div className="border-border relative overflow-hidden rounded-xl border shadow-xl">
-                        <Image
-                          key={project.image}
-                          src={project.image}
-                          alt={`${project.name} Project Screenshot`}
-                          width={400}
-                          height={250}
-                          className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div className="relative">
+            <button
+              type="button"
+              onClick={scrollPrev}
+              disabled={!canScrollPrev}
+              aria-label="Previous project"
+              className="border-border bg-card/90 text-foreground hover:bg-accent absolute top-1/2 left-0 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border shadow-md backdrop-blur-sm disabled:opacity-30"
+            >
+              <FaChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={scrollNext}
+              disabled={!canScrollNext}
+              aria-label="Next project"
+              className="border-border bg-card/90 text-foreground hover:bg-accent absolute top-1/2 right-0 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border shadow-md backdrop-blur-sm disabled:opacity-30"
+            >
+              <FaChevronRight className="h-4 w-4" />
+            </button>
+            <div className="embla overflow-hidden px-12" ref={emblaRef}>
+              <div className="embla__container flex">
+                {projects.map((project, index) => (
+                  <div
+                    key={project.name}
+                    className="embla__slide min-w-0 flex-[0_0_100%] px-4"
+                  >
+                    <div className="bg-card border-border space-y-6 rounded-xl border p-6 backdrop-blur-sm">
+                      {/* Project Image */}
+                      <div className="group relative">
+                        <div className="absolute -inset-2 rounded-xl bg-gradient-to-r from-blue-500/20 to-emerald-500/20 opacity-75 blur transition duration-1000 group-hover:opacity-100"></div>
+                        <div className="border-border relative overflow-hidden rounded-xl border shadow-xl">
+                          <Image
+                            key={project.image}
+                            src={project.image}
+                            alt={`${project.name} Project Screenshot`}
+                            width={400}
+                            height={250}
+                            className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Project Content */}
-                    <div className="space-y-4">
-                      <div className="space-y-2">
-                        <h3 className="text-foreground text-2xl font-bold">
-                          {project.name}
-                        </h3>
-                        <span className="bg-primary/20 text-primary border-primary/30 rounded-full border px-3 py-1 text-sm">
-                          {project.role}
-                        </span>
-                      </div>
-
-                      <p className="text-muted-foreground text-base leading-relaxed">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    {/* Tech Stack */}
-                    <div className="space-y-3">
-                      <h4 className="text-foreground text-base font-semibold">
-                        Tech Stack
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="rounded-md border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-gray-300"
-                          >
-                            {tech}
+                      {/* Project Content */}
+                      <div className="space-y-4">
+                        <div className="space-y-2">
+                          <h3 className="text-foreground text-2xl font-bold">
+                            {project.name}
+                          </h3>
+                          <span className="bg-primary/20 text-primary border-primary/30 rounded-full border px-3 py-1 text-sm">
+                            {project.role}
                           </span>
-                        ))}
+                        </div>
+
+                        <p className="text-muted-foreground text-base leading-relaxed">
+                          {project.description}
+                        </p>
                       </div>
-                    </div>
 
-                    {/* Action Buttons */}
-                    <div className="flex flex-col gap-3">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group inline-flex transform items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl"
-                      >
-                        <span>Live Demo</span>
-                        <Image
-                          src="/Assets/link-square-02.svg"
-                          alt="External Link"
-                          width={14}
-                          height={14}
-                          className="transition-transform duration-300 group-hover:rotate-45"
-                        />
-                      </a>
+                      {/* Tech Stack */}
+                      <div className="space-y-3">
+                        <h4 className="text-foreground text-base font-semibold">
+                          Tech Stack
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tech.map((tech, i) => (
+                            <span
+                              key={i}
+                              className="rounded-md border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-gray-300"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
 
-                      {project.github && (
+                      {/* Action Buttons */}
+                      <div className="flex flex-col gap-3">
                         <a
-                          href={project.github}
+                          href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="border-border text-foreground hover:bg-accent inline-flex items-center justify-center gap-2 rounded-lg border-2 px-4 py-2 text-sm font-semibold transition-all duration-300"
+                          className="group inline-flex transform items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-emerald-700 hover:shadow-xl"
                         >
+                          <span>Live Demo</span>
                           <Image
-                            src="/Assets/gitHubIcon.svg"
-                            alt="GitHub"
-                            width={16}
-                            height={16}
+                            src="/Assets/link-square-02.svg"
+                            alt="External Link"
+                            width={14}
+                            height={14}
+                            className="transition-transform duration-300 group-hover:rotate-45"
                           />
-                          <span>GitHub</span>
                         </a>
-                      )}
+
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border-border text-foreground hover:bg-accent inline-flex items-center justify-center gap-2 rounded-lg border-2 px-4 py-2 text-sm font-semibold transition-all duration-300"
+                          >
+                            <Image
+                              src="/Assets/gitHubIcon.svg"
+                              alt="GitHub"
+                              width={16}
+                              height={16}
+                            />
+                            <span>GitHub</span>
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
